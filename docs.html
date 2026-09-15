@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Documentation — Customer Assets for JSM Portal | BasicData</title>
+<style>
+:root{--blue:#1d7afc;--ink:#172b4d;--sub:#44546f;--line:#dfe1e6;--soft:#f7f8f9;--accent:#e9f2ff;--warnbg:#fff7d6;--warnline:#f5cd47}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px}
+header{border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.logo{font-size:20px;font-weight:700;color:var(--ink)}.logo b{color:var(--blue)}
+nav a{margin-left:22px;color:var(--sub);font-size:15px}
+main{padding:48px 0 64px}
+h1{font-size:32px;margin-bottom:6px}
+.meta{color:var(--sub);font-size:14px;margin-bottom:28px}
+h2{font-size:22px;margin:36px 0 12px;padding-left:10px;border-left:3px solid var(--blue)}
+h3{font-size:17px;margin:20px 0 8px}
+p,li{color:var(--ink)}
+p{margin-bottom:12px}
+ul,ol{margin:0 0 12px 22px}
+li{margin-bottom:8px}
+code{background:var(--soft);border:1px solid var(--line);border-radius:4px;padding:1px 5px;font-size:14px}
+.warn{background:var(--warnbg);border:1px solid var(--warnline);border-radius:8px;padding:14px 16px;margin:16px 0}
+.note{background:var(--accent);border:1px solid #cce0ff;border-radius:8px;padding:14px 16px;margin:16px 0}
+.step{background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:16px 18px;margin-bottom:14px}
+.step h3{margin-top:0}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--sub);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <div class="logo"><a href="index.html" style="color:inherit">Basic<b>Data</b></a></div>
+    <nav><a href="docs.html">Docs</a><a href="privacy.html">Privacy</a><a href="impressum.html">Impressum</a></nav>
+  </div>
+</header>
+<main class="wrap">
+  <h1>Documentation</h1>
+  <div class="meta">Customer Assets for JSM Portal — setup guide &amp; FAQ</div>
+
+  <p><strong>Customer Assets for JSM Portal</strong> gives your customers a secure self-service view of their assigned assets (JSM Assets / Insight) right inside the Jira Service Management customer portal: browse and search their devices and licenses, edit schema-approved attributes, and raise asset-linked requests — report a problem, register an asset, request a change, or ask a question.</p>
+
+  <h2>Requirements</h2>
+  <ul>
+    <li>Jira Service Management Cloud with <strong>Assets</strong> (Premium/Enterprise).</li>
+    <li>An asset schema where each object type has an <strong>owner reference attribute</strong> pointing at the Atlassian user who owns the object (the app auto-suggests likely candidates).</li>
+    <li>A JSM project with request types the app can use for asset requests.</li>
+    <li>Site-admin permissions for configuration.</li>
+  </ul>
+
+  <div class="warn">
+    <strong>⚠️ Mandatory prerequisite — Assets field configuration:</strong>
+    the Jira custom field of type <em>"Assets objects"</em> that the app uses to link tickets to assets needs a complete <strong>Assets field configuration</strong>: assign your object schema and set the <strong>searchable attributes</strong> (ideally including <em>Key</em>) in <em>Jira admin → Issues → Custom fields → your Assets field → Configure</em>. The field must also be on the <strong>screens of the target project</strong>. Without this, asset linking fails with <code>cmdb.config.not.found</code>. The built-in check ("Verify field" in step 1 of the configuration) detects exactly this case and tells you what to fix.
+  </div>
+
+  <h2>Setup in 4 steps</h2>
+
+  <div class="step"><h3>1 · Open the configuration</h3>
+  <p>After installing, go to <strong>Jira administration → Apps → "Customer Assets — Configuration"</strong>. On first run the <strong>setup wizard</strong> starts automatically; a contextual help panel with a data-flow diagram accompanies every step.</p></div>
+
+  <div class="step"><h3>2 · Connect tickets</h3>
+  <p>Pick your JSM <strong>service desk</strong> and the <strong>request types</strong> for asset issues and asset registrations, and select the <strong>Assets custom field</strong> used to link the affected asset. Then click <strong>"Verify field"</strong> — it checks field existence, type, screen assignment and the Assets field configuration end to end.</p></div>
+
+  <div class="step"><h3>3 · Connect assets</h3>
+  <p>Choose your <strong>object schema</strong> and the <strong>object types</strong> customers should see. For each type, confirm the auto-suggested <strong>owner attribute</strong> — this is what scopes every query to the signed-in customer.</p></div>
+
+  <div class="step"><h3>4 · Shape the experience</h3>
+  <p>Per object type: card attributes, status attribute with color mapping, visible detail attributes, editability (direct vs. change-request), icons — plus portal languages and translations of object-type and attribute names. An optional <strong>dashboard start view</strong> (counters, status distribution, recent updates, quick actions) can be enabled globally.</p></div>
+
+  <div class="note">Configuration is stored in Forge Key-Value Storage and can be changed anytime without redeploying. "Reset configuration" in the admin page wipes it completely.</div>
+
+  <h2>How customers use it</h2>
+  <p>Customers open <strong>"My Assets"</strong> from the customer portal user menu. They see only objects whose owner attribute matches their Atlassian account — enforced server-side, default-deny. From any asset they can report a problem, request a change or ask a question; each ticket automatically links the affected asset. Agents see the reporter's assets in the <strong>"Reporter Assets"</strong> glance in the issue view.</p>
+
+  <h2>Security model</h2>
+  <ul>
+    <li>Every resolver call resolves the customer scope from the signed Forge context and wraps <em>every</em> AQL query in a scope-binding predicate. No account ID → empty result set, even against a manipulated frontend.</li>
+    <li>Updates are re-authorized server-side before writing.</li>
+    <li>Admin endpoints verify Jira admin permissions as the calling user.</li>
+    <li>No external endpoints: the app is eligible for the <strong>"Runs on Atlassian"</strong> badge — no data leaves your site. See the <a href="privacy.html">privacy policy</a>.</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <h3>The "Verify field" check fails with a red result — what now?</h3>
+  <p>Follow the message shown for the failing check: it points at either a wrong field type, a missing screen assignment in the target project, or a missing/incomplete Assets field configuration (see the yellow box above — the most common cause of <code>cmdb.config.not.found</code>).</p>
+  <h3>A customer sees no assets.</h3>
+  <p>Check that the object type's owner attribute is set in the configuration and that the customer's Atlassian account is actually referenced in that attribute on their objects.</p>
+  <h3>Which languages are supported?</h3>
+  <p>The UI ships in English and German and follows each user's Atlassian profile language. Object-type and attribute names can be translated per site language in the configuration (step 3/4).</p>
+  <h3>Does the app create Insight objects directly?</h3>
+  <p>"Register asset" raises a ticket for your IT team by default, keeping data quality and audit trail in your hands. Per object type you can alternatively allow direct creation and editing by customers.</p>
+
+  <h2>Support</h2>
+  <p>Email <a href="mailto:atzepaule@googlemail.com">atzepaule@googlemail.com</a> — please include your site URL (no credentials!), the app version and a screenshot of the "Verify field" result if your issue is configuration-related.</p>
+</main>
+<footer>
+  <div class="wrap">
+    <span>© 2026 BasicData · Christian Wiemer, Berlin</span>
+    <span><a href="privacy.html">Privacy</a> · <a href="impressum.html">Impressum</a></span>
+  </div>
+</footer>
+</body>
+</html>
