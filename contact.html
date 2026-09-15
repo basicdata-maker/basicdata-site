@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="logo-512.png">
+<title>Contact | BasicData</title>
+<style>
+:root{--blue:#1d7afc;--ink:#172b4d;--sub:#44546f;--line:#dfe1e6;--soft:#f7f8f9;--accent:#e9f2ff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:720px;margin:0 auto;padding:0 24px}
+header{border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.logo{font-size:20px;font-weight:700;color:var(--ink)}.logo b{color:var(--blue)}
+nav a{margin-left:22px;color:var(--sub);font-size:15px}
+main{padding:48px 0 64px}
+h1{font-size:32px;margin-bottom:8px}
+.lead{color:var(--sub);margin-bottom:28px}
+label{display:block;font-weight:600;font-size:14px;margin:18px 0 6px}
+input,textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:6px;font:inherit;color:var(--ink);background:#fff}
+input:focus,textarea:focus{outline:2px solid var(--blue);outline-offset:1px;border-color:var(--blue)}
+textarea{min-height:160px;resize:vertical}
+.btn{display:inline-block;background:var(--blue);color:#fff;padding:12px 26px;border-radius:6px;font-weight:600;border:0;cursor:pointer;font-size:16px;margin-top:22px}
+.btn:hover{background:#0c66e4}
+.hint{font-size:13px;color:var(--sub);margin-top:14px}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--sub);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;max-width:960px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <div class="logo"><a href="index.html" style="color:inherit">Basic<b>Data</b></a></div>
+    <nav><a href="docs.html">Docs</a><a href="privacy.html">Privacy</a><a href="impressum.html">Impressum</a><a href="contact.html">Contact</a></nav>
+  </div>
+</header>
+<main class="wrap">
+  <h1>Contact</h1>
+  <p class="lead">Questions about Customer Assets for JSM Portal, a bug report or a feature idea? Send us a message. We usually reply within one business day.</p>
+
+  <form action="https://formsubmit.co/hello@basicdata.net" method="POST">
+    <input type="hidden" name="_subject" value="Contact form basicdata.net">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_next" value="https://basicdata.net/thanks.html">
+    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+    <label for="name">Name</label>
+    <input id="name" type="text" name="name" required>
+
+    <label for="email">Your email</label>
+    <input id="email" type="email" name="email" required>
+
+    <label for="subject">Subject</label>
+    <input id="subject" type="text" name="subject" required>
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" required></textarea>
+
+    <button class="btn" type="submit">Send message</button>
+    <p class="hint">Your message is delivered to us by the form service FormSubmit. Details in the <a href="privacy.html">privacy policy</a>.</p>
+  </form>
+</main>
+<footer>
+  <div class="wrap">
+    <span>© 2026 BasicData · Christian Wiemer, Berlin</span>
+    <span><a href="privacy.html">Privacy</a> · <a href="impressum.html">Impressum</a> · <a href="contact.html">Contact</a></span>
+  </div>
+</footer>
+</body>
+</html>
