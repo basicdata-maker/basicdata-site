@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="logo-512.png">
+<title>Security Policy · Customer Assets for JSM Portal | BasicData</title>
+<style>
+:root{--blue:#1d7afc;--ink:#172b4d;--sub:#44546f;--line:#dfe1e6;--soft:#f7f8f9;--accent:#e9f2ff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:820px;margin:0 auto;padding:0 24px}
+header{border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.logo{font-size:20px;font-weight:700;color:var(--ink)}.logo b{color:var(--blue)}
+nav a{margin-left:22px;color:var(--sub);font-size:15px}
+main{padding:48px 0 64px}
+h1{font-size:32px;margin-bottom:6px}
+.meta{color:var(--sub);font-size:14px;margin-bottom:28px}
+h2{font-size:21px;margin:32px 0 10px;padding-left:10px;border-left:3px solid var(--blue)}
+p,li{color:var(--ink)}
+p{margin-bottom:12px}
+ul{margin:0 0 12px 22px}
+li{margin-bottom:8px}
+.note{background:var(--accent);border:1px solid #cce0ff;border-radius:8px;padding:14px 16px;margin:16px 0}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--sub);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <div class="logo"><a href="index.html" style="color:inherit">Basic<b>Data</b></a></div>
+    <nav><a href="docs.html">Docs</a><a href="security.html">Security</a><a href="privacy.html">Privacy</a><a href="impressum.html">Impressum</a></nav>
+  </div>
+</header>
+<main class="wrap">
+  <h1>Security Policy</h1>
+  <div class="meta">Customer Assets for JSM Portal · Last updated: 2026-10-05</div>
+
+  <p>This page describes the security practices behind the Atlassian Forge app <strong>Customer Assets for JSM Portal</strong>. For how the App handles personal data, see the separate <a href="privacy.html">privacy policy</a>.</p>
+
+  <div class="note"><strong>Summary:</strong> The App runs entirely on Atlassian's Forge platform inside your Atlassian site. It declares no external endpoints, holds no credentials or API keys, and every customer-facing query is authorized server-side with a default-deny model.</div>
+
+  <h2>Architecture and hosting</h2>
+  <ul>
+    <li>The App is built on <strong>Atlassian Forge</strong> and runs exclusively on Atlassian-managed infrastructure. BasicData operates no servers of its own.</li>
+    <li>The manifest declares <strong>no external egress</strong> (<code>external.fetch: []</code>). No data can leave your Atlassian site through the App. The App is eligible for Atlassian's "Runs on Atlassian" program.</li>
+    <li>All App storage uses Forge hosted storage (Key-Value Store) inside your site's data residency boundary. Data at rest is encrypted by Atlassian.</li>
+  </ul>
+
+  <h2>Access control</h2>
+  <ul>
+    <li><strong>Default deny:</strong> every customer query is scope-bound server-side to the signed-in user via the configured owner attribute. Without a verified account ID the result set is empty, even against a manipulated frontend.</li>
+    <li>Asset updates are re-authorized server-side before any write.</li>
+    <li>Admin endpoints verify Jira administrator permissions as the calling user (via the Jira permissions API, not trusting the client).</li>
+    <li>The App requests the minimum Forge scopes needed for its functionality.</li>
+  </ul>
+
+  <h2>Data handling</h2>
+  <ul>
+    <li>Asset data is processed in-memory per request and is not persisted by the App.</li>
+    <li>The App collects no passwords, API tokens or third-party credentials from anyone.</li>
+    <li>Logs contain no personal data: account identifiers are replaced by one-way hashes before logging. Usage counters are anonymous.</li>
+  </ul>
+
+  <h2>Secure development</h2>
+  <ul>
+    <li>All resolver inputs are validated server-side; AQL queries are built from typed parameters with the customer scope injected server-side.</li>
+    <li>Development follows the OWASP Top 10. The frontend is React, which escapes output by default.</li>
+    <li>Third-party dependencies are checked for known vulnerabilities with automated scans (npm audit) and kept up to date.</li>
+    <li>Development happens on full-disk-encrypted workstations; all development accounts (Atlassian, source control) require multi-factor authentication.</li>
+  </ul>
+
+  <h2>Vulnerability management and incident response</h2>
+  <ul>
+    <li>We follow Atlassian's <a href="https://developer.atlassian.com/platform/marketplace/security-bugfix-policy/">Marketplace security bug fix policy</a>, including its timelines for fixing reported vulnerabilities by severity.</li>
+    <li>In case of a security incident or a critical vulnerability we notify affected customers and Atlassian, following Atlassian's <a href="https://developer.atlassian.com/platform/marketplace/app-security-incident-management-guidelines/">incident notification guidelines</a>.</li>
+    <li>Security reports are handled with priority. We respond within one business day.</li>
+  </ul>
+
+  <h2>Reporting a vulnerability</h2>
+  <p>If you believe you have found a security issue in the App, contact us at <strong>support@basicdata.net</strong> or via the <a href="contact.html">contact form</a>. Please include steps to reproduce and do not share the issue publicly before we have addressed it.</p>
+</main>
+<footer>
+  <div class="wrap">
+    <span>© 2026 BasicData, Berlin</span>
+    <span><a href="security.html">Security</a> · <a href="privacy.html">Privacy</a> · <a href="impressum.html">Impressum</a></span>
+  </div>
+</footer>
+</body>
+</html>
