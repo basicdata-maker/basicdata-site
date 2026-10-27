@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/png" href="logo-512.png">
+<link rel="apple-touch-icon" href="logo-512.png">
 <title>Contact | BasicData</title>
 <style>
 :root{--blue:#1d7afc;--ink:#172b4d;--sub:#44546f;--line:#dfe1e6;--soft:#f7f8f9;--accent:#e9f2ff}
@@ -15,6 +16,9 @@ header{border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
 .logo{font-size:20px;font-weight:700;color:var(--ink)}.logo b{color:var(--blue)}
 nav a{margin-left:22px;color:var(--sub);font-size:15px}
+.logo a{display:inline-flex;align-items:center;gap:10px;color:inherit}
+.logo img{width:30px;height:30px;border-radius:7px;display:block}
+
 main{padding:48px 0 64px}
 h1{font-size:32px;margin-bottom:8px}
 .lead{color:var(--sub);margin-bottom:28px}
@@ -32,13 +36,14 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;
 <body>
 <header>
   <div class="wrap nav">
-    <div class="logo"><a href="index.html" style="color:inherit">Basic<b>Data</b></a></div>
+    <div class="logo"><a href="index.html"><img src="logo-512.png" alt="BasicData logo">Basic<b>Data</b></a></div>
     <nav><a href="docs.html">Docs</a><a href="privacy.html">Privacy</a><a href="impressum.html">Impressum</a><a href="contact.html">Contact</a></nav>
   </div>
 </header>
 <main class="wrap">
   <h1>Contact</h1>
   <p class="lead">Questions about Customer Assets for the JSM Portal, a bug report or a feature idea? Send us a message. We usually reply within one business day.</p>
+  <p style="background:#e9f2ff;border:1px solid #cce0ff;border-radius:8px;padding:14px 16px;margin-bottom:26px">🎫 For product support, the fastest way is our <a href="https://basicdata.atlassian.net/servicedesk/customer/portal/3"><strong>support portal</strong></a> — your request becomes a tracked ticket and you can follow its status anytime.</p>
 
   <form action="https://formsubmit.co/hello@basicdata.net" method="POST">
     <input type="hidden" name="_subject" value="Contact form basicdata.net">

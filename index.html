@@ -4,8 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/png" href="logo-512.png">
+<link rel="apple-touch-icon" href="logo-512.png">
 <title>BasicData · Practical Forge apps for Jira Service Management</title>
 <meta name="description" content="BasicData builds practical Atlassian Forge apps that close the gaps in Jira Service Management. Maker of Customer Assets for the JSM Portal.">
+<meta property="og:title" content="BasicData · Practical Forge apps for Jira Service Management">
+<meta property="og:description" content="Customer Assets for the JSM Portal: a secure self-service asset view in the JSM customer portal. Runs on Atlassian, no data egress.">
+<meta property="og:image" content="https://basicdata.net/logo-512.png">
+<meta property="og:url" content="https://basicdata.net/">
+<meta property="og:type" content="website">
 <style>
 :root{--blue:#1d7afc;--ink:#172b4d;--sub:#44546f;--line:#dfe1e6;--soft:#f7f8f9;--accent:#e9f2ff}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -17,6 +23,9 @@ header{border-bottom:1px solid var(--line)}
 .logo{font-size:20px;font-weight:700;color:var(--ink)}
 .logo b{color:var(--blue)}
 nav a{margin-left:22px;color:var(--sub);font-size:15px}
+.logo a{display:inline-flex;align-items:center;gap:10px;color:inherit}
+.logo img{width:30px;height:30px;border-radius:7px;display:block}
+
 .hero{padding:72px 0 56px;text-align:center}
 .hero h1{font-size:40px;line-height:1.2;margin-bottom:16px}
 .hero p{font-size:19px;color:var(--sub);max-width:640px;margin:0 auto 28px}
@@ -46,9 +55,10 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
 <body>
 <header>
   <div class="wrap nav">
-    <div class="logo">Basic<b>Data</b></div>
+    <div class="logo"><a href="index.html"><img src="logo-512.png" alt="BasicData logo">Basic<b>Data</b></a></div>
     <nav>
       <a href="docs.html">Docs</a>
+      <a href="security.html">Security</a>
       <a href="privacy.html">Privacy</a>
       <a href="impressum.html">Impressum</a>
       <a href="contact.html">Contact</a>
@@ -59,8 +69,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
 <div class="wrap hero">
   <h1>Practical Forge apps that close the gaps in Jira&nbsp;Service&nbsp;Management.</h1>
   <p>BasicData is an independent software maker from Berlin. We build focused, secure apps for the Atlassian Marketplace. Everything runs on Atlassian Forge, with zero data egress.</p>
-  <a class="btn" href="docs.html">View documentation</a>
-  <a class="btn ghost" href="contact.html">Get in touch</a>
+  <a class="btn" href="https://marketplace.atlassian.com/apps/3678048516">Get it on the Atlassian Marketplace</a>
+  <a class="btn ghost" href="docs.html">View documentation</a>
 </div>
 
 <section>
@@ -74,10 +84,10 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
       </div>
     </div>
     <div class="cards" style="margin-top:24px">
-      <div class="card"><h3>🔒 Self-service, default-deny</h3><p>Every query is scope-bound server-side to the signed-in customer. The app runs entirely on Atlassian infrastructure. No data ever leaves your site.</p></div>
+      <div class="card"><h3>🔒 Self-service, default-deny</h3><p>Every query is scope-bound server-side to the signed-in customer. The app runs entirely on Atlassian infrastructure. No data ever leaves your site. Ownership can live in a user attribute or in a linked object, such as an employee record.</p></div>
       <div class="card"><h3>🔁 Four asset processes</h3><p>Report a problem, register an asset, request a change or ask a question. You decide per object type whether changes apply directly or go through a reviewed ticket. Every ticket links the affected asset.</p></div>
       <div class="card"><h3>🌍 Multilingual</h3><p>English and German UI out of the box, plus translatable object-type and attribute names. Customers see everything in their Atlassian profile language.</p></div>
-      <div class="card"><h3>🩺 Guided setup &amp; health check</h3><p>A 4-step wizard guides you through the setup, with contextual help and a data-flow diagram. One click verifies your Jira asset field end to end.</p></div>
+      <div class="card"><h3>🩺 Setup that explains itself</h3><p>A status panel with four plain-language checks, a one-click proposal that scans your site and fills in the whole configuration, and a live preview that shows your own portal while you map owners. One click verifies your Jira asset field end to end.</p></div>
     </div>
   </div>
 </section>
@@ -96,6 +106,17 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
 
 <section>
   <div class="wrap">
+    <h2>Pricing</h2>
+    <div class="cards">
+      <div class="card"><h3>💳 Paid via Atlassian</h3><p>USD 0.50 per agent per month — flat USD 5/month for sites with up to 10 agents. Billed by Atlassian together with your Jira subscription; annual billing gets two months free.</p></div>
+      <div class="card"><h3>🗓 30-day free trial</h3><p>Every new subscription starts with a free 30-day trial, managed entirely through Atlassian. No card, no separate account.</p></div>
+      <div class="card"><h3>🤝 Support included</h3><p>Questions or issues? Raise a ticket in our <a href="https://basicdata.atlassian.net/servicedesk/customer/portal/3">support portal</a>. We respond within one business day.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
     <h2>About BasicData</h2>
     <p style="color:var(--sub);max-width:720px">BasicData is an independent software business based in Berlin, Germany. We think admin tools should explain themselves. Our apps ship with guided setup, built-in checks and honest documentation. Your data stays on your site, by design.</p>
   </div>
@@ -104,7 +125,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
 <footer>
   <div class="wrap">
     <span>© 2026 BasicData, Berlin</span>
-    <span><a href="privacy.html">Privacy</a> · <a href="impressum.html">Impressum</a> · <a href="contact.html">Contact</a></span>
+    <span><a href="https://basicdata.atlassian.net/servicedesk/customer/portal/3">Support</a> · <a href="privacy.html">Privacy</a> · <a href="impressum.html">Impressum</a> · <a href="contact.html">Contact</a></span>
   </div>
 </footer>
 </body>
