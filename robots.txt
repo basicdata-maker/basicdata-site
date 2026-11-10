@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://basicdata.net/sitemap.xml

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="logo-512.png">
+<link rel="apple-touch-icon" href="logo-512.png">
+<title>Use cases · Customer Assets for the JSM Portal | BasicData</title>
+<meta name="description" content="Asset self-service use cases for the JSM portal: IT equipment, software licenses, fleet, facilities, MSP customer portals, rental, education and healthcare.">
+<style>
+:root{--blue:#1d7afc;--ink:#172b4d;--sub:#44546f;--line:#dfe1e6;--soft:#f7f8f9;--accent:#e9f2ff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+header{border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.logo{font-size:20px;font-weight:700;color:var(--ink)}.logo b{color:var(--blue)}
+nav a{margin-left:22px;color:var(--sub);font-size:15px}
+.logo a{display:inline-flex;align-items:center;gap:10px;color:inherit}
+.logo img{width:30px;height:30px;border-radius:7px;display:block}
+main{padding:48px 0 64px}
+h1{font-size:34px;margin-bottom:10px}
+.lead{color:var(--sub);font-size:17.5px;max-width:760px;margin-bottom:10px}
+.pattern{background:var(--accent);border:1px solid #cce0ff;border-radius:10px;padding:16px 18px;margin:22px 0 34px;max-width:860px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(420px,100%),1fr));gap:20px}
+.uc{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:22px}
+.uc h2{font-size:19px;margin-bottom:8px}
+.uc p{font-size:14.8px;color:var(--sub);margin-bottom:10px}
+.uc .tag{display:inline-block;background:var(--accent);color:#0055cc;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;margin-bottom:10px}
+.uc ul{margin:0 0 10px 18px;font-size:14.5px;color:var(--ink)}
+.uc li{margin-bottom:5px}
+.uc .setup{font-size:13.5px;color:var(--sub);border-top:1px dashed var(--line);padding-top:10px}
+.cta{margin-top:40px;background:linear-gradient(135deg,#0b2a66,#1d7afc);border-radius:12px;padding:30px 28px;color:#fff;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+.cta h2{font-size:21px}
+.cta p{color:#cfe1ff;font-size:14.5px;margin-top:4px}
+.btn{display:inline-block;background:#fff;color:#0b2a66;padding:11px 20px;border-radius:6px;font-weight:700}
+.btn:hover{text-decoration:none;background:#e9f2ff}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--sub);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <div class="logo"><a href="index.html"><img src="logo-512.png" alt="BasicData logo">Basic<b>Data</b></a></div>
+    <nav><a href="docs.html">Docs</a><a href="usecases.html">Use cases</a><a href="security.html">Security</a><a href="privacy.html">Privacy</a><a href="impressum.html">Impressum</a><a href="contact.html">Contact</a></nav>
+  </div>
+</header>
+<main class="wrap">
+  <h1>One pattern, many use cases</h1>
+  <p class="lead">Customer Assets for the JSM Portal shows people exactly the things that belong to them — and lets them act on them. That pattern is not limited to IT hardware.</p>
+  <div class="pattern"><strong>The pattern:</strong> someone (an employee, customer, student or tenant) has assigned objects (devices, licenses, vehicles, keys, machines). They want four things: <em>see</em> what they have, <em>request</em> something new, <em>change or return</em> it, and <em>report a problem</em>. If your JSM Assets schema can model it, the portal can serve it.</div>
+
+  <div class="grid">
+    <div class="uc"><span class="tag">Classic IT</span><h2>Employee equipment</h2>
+      <p>Laptops, monitors, phones and accessories per employee.</p>
+      <ul><li>"My Assets" shows each employee their devices</li><li>Report a defect with the asset linked automatically</li><li>Request replacement or return at offboarding</li></ul>
+      <div class="setup">Setup: object types like Laptops and Mobiles with a user owner attribute. Works out of the box with the setup wizard.</div></div>
+
+    <div class="uc"><span class="tag">Cost saver</span><h2>Software licenses &amp; SaaS seats</h2>
+      <p>Unused licenses do not cancel themselves. Self-service does.</p>
+      <ul><li>Everyone sees their assigned licenses and seats</li><li>Request an additional license via ticket</li><li>Cancel an unused license in one click — a reviewed change request</li></ul>
+      <div class="setup">Setup: a Licenses object type with owner and renewal date. Use the change-request process for cancellations.</div></div>
+
+    <div class="uc"><span class="tag">ESM</span><h2>Facilities &amp; office</h2>
+      <p>Keys, access cards, furniture and parking spots are assets too.</p>
+      <ul><li>Report a lost access card immediately, asset linked</li><li>Request a key or a desk setup</li><li>Return everything trackable at move-out</li></ul>
+      <div class="setup">Setup: a Facilities schema next to your IT schema. The app supports multiple object types with their own presentation.</div></div>
+
+    <div class="uc"><span class="tag">ESM</span><h2>Fleet &amp; company cars</h2>
+      <p>Drivers see their vehicle, fuel card and charging card.</p>
+      <ul><li>Report damage with the vehicle linked</li><li>Request a service appointment</li><li>Hand over the car at lease end</li></ul>
+      <div class="setup">Setup: Vehicles with a driver owner attribute, status for availability, lease-end date on the card.</div></div>
+
+    <div class="uc"><span class="tag">B2B</span><h2>MSP &amp; service providers</h2>
+      <p>Show customers the servers, firewalls and workplaces you manage for them.</p>
+      <ul><li>Customers see their managed devices and contracts</li><li>Report an incident on a specific device</li><li>Order or cancel a service package via ticket</li></ul>
+      <div class="setup">Setup today: per-person ownership, including via a linked contact object (Contact -&gt; User). Organization-wide ownership is on our roadmap.</div></div>
+
+    <div class="uc"><span class="tag">Rental</span><h2>Equipment rental</h2>
+      <p>Machines, tools and event gear on loan — visible to the renter.</p>
+      <ul><li>Renters see their current rentals with return dates</li><li>Report damage in seconds instead of paper forms</li><li>Request an extension or trigger the return</li></ul>
+      <div class="setup">Setup: rental objects with renter owner, rental-end attribute on the card, change requests for extensions.</div></div>
+
+    <div class="uc"><span class="tag">Education</span><h2>School &amp; campus devices</h2>
+      <p>1:1 device programs without PDF damage forms.</p>
+      <ul><li>Students (or parents) see the assigned device</li><li>Report damage, request a loaner</li><li>Collect everything at the end of the year</li></ul>
+      <div class="setup">Setup: Devices with a student owner attribute — also via a linked student record (Student -&gt; User).</div></div>
+
+    <div class="uc"><span class="tag">Healthcare</span><h2>Medical &amp; care equipment</h2>
+      <p>Wheelchairs, monitors and loaner devices per ward or patient.</p>
+      <ul><li>Staff see the ward's devices and their status</li><li>Report a defect with maintenance obligations in mind</li><li>Request replacements before they become critical</li></ul>
+      <div class="setup">Setup: equipment with an owner attribute per responsible person; linked-record ownership supported.</div></div>
+  </div>
+
+  <div class="cta">
+    <div><h2>Your schema, their portal.</h2><p>30-day free trial, guided setup in minutes, no data leaves your site.</p></div>
+    <a class="btn" href="https://marketplace.atlassian.com/apps/3678048516">Try it on the Marketplace</a>
+  </div>
+</main>
+<footer>
+  <div class="wrap">
+    <span>© 2026 BasicData, Berlin</span>
+    <span><a href="docs.html">Docs</a> · <a href="https://basicdata.atlassian.net/servicedesk/customer/portal/3">Support</a> · <a href="privacy.html">Privacy</a> · <a href="impressum.html">Impressum</a></span>
+  </div>
+</footer>
+</body>
+</html>
