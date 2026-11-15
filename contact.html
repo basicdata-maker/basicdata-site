@@ -6,52 +6,173 @@
 <link rel="icon" type="image/png" href="logo-512.png">
 <link rel="apple-touch-icon" href="logo-512.png">
 <title>Contact | BasicData</title>
+<meta name="description" content="Contact BasicData — questions, bug reports or feature ideas about Customer Assets for the JSM Portal. We usually reply within one business day.">
 <style>
-:root{--blue:#1d7afc;--ink:#172b4d;--sub:#44546f;--line:#dfe1e6;--soft:#f7f8f9;--accent:#e9f2ff}
+:root{
+  --blue:#1d7afc;--blue-dark:#0c66e4;--navy:#0b2a66;--navy-2:#123d91;
+  --ink:#172b4d;--sub:#44546f;--line:#dfe1e6;--soft:#f7f8f9;--accent:#e9f2ff;
+  --r:16px;--r-sm:12px;
+  --shadow:0 14px 40px rgba(9,30,66,.12);--shadow-sm:0 4px 16px rgba(9,30,66,.07);
+}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
-a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
-.wrap{max-width:720px;margin:0 auto;padding:0 24px}
-header{border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
-.logo{font-size:20px;font-weight:700;color:var(--ink)}.logo b{color:var(--blue)}
-nav a{margin-left:22px;color:var(--sub);font-size:15px}
-.logo a{display:inline-flex;align-items:center;gap:10px;color:inherit}
-.logo img{width:30px;height:30px;border-radius:7px;display:block}
+html{scroll-behavior:smooth;scroll-padding-top:92px}
+body{font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff;-webkit-text-size-adjust:100%;overflow-wrap:break-word}
+img{max-width:100%;height:auto}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px;border-radius:6px}
+.hero-dark :focus-visible,.cta-band :focus-visible,.site-footer :focus-visible{outline-color:#fff}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+@media(min-width:480px){.wrap{padding:0 28px}}
 
-main{padding:48px 0 64px}
-h1{font-size:32px;margin-bottom:8px}
-.lead{color:var(--sub);margin-bottom:28px}
-label{display:block;font-weight:600;font-size:14px;margin:18px 0 6px}
-input,textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:6px;font:inherit;color:var(--ink);background:#fff}
-input:focus,textarea:focus{outline:2px solid var(--blue);outline-offset:1px;border-color:var(--blue)}
-textarea{min-height:160px;resize:vertical}
-.btn{display:inline-block;background:var(--blue);color:#fff;padding:12px 26px;border-radius:6px;font-weight:600;border:0;cursor:pointer;font-size:16px;margin-top:22px}
-.btn:hover{background:#0c66e4}
-.hint{font-size:13px;color:var(--sub);margin-top:14px}
-footer{border-top:1px solid var(--line);padding:28px 0;color:var(--sub);font-size:14px}
-footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;max-width:960px}
+/* Header */
+.site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:saturate(1.6) blur(14px);-webkit-backdrop-filter:saturate(1.6) blur(14px);border-bottom:1px solid rgba(9,30,66,.08)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:8px 16px;padding-top:12px;padding-bottom:12px;flex-wrap:wrap}
+.logo a{display:inline-flex;align-items:center;gap:10px;font-size:19px;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+.logo a:hover{text-decoration:none}
+.logo img{width:32px;height:32px;border-radius:8px;display:block}
+.logo b{color:var(--blue)}
+.nav nav{display:flex;flex-wrap:wrap;gap:2px}
+.nav nav a{color:var(--sub);font-size:14.5px;font-weight:500;padding:7px 11px;border-radius:999px;transition:background .15s,color .15s}
+.nav nav a:hover{background:var(--accent);color:var(--blue-dark);text-decoration:none}
+.nav nav a[aria-current="page"]{background:var(--accent);color:var(--blue-dark);font-weight:600}
+@media(max-width:480px){.nav nav a{padding:6px 8px;font-size:13.5px}}
+
+/* Dark hero */
+.hero-dark{position:relative;overflow:hidden;background:linear-gradient(135deg,#0b2a66 0%,#123d91 52%,#1d7afc 135%);color:#fff}
+.hero-dark::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.13) 1px,transparent 1.6px);background-size:26px 26px;-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.9),transparent 80%);mask-image:linear-gradient(to bottom,rgba(0,0,0,.9),transparent 80%);pointer-events:none}
+.hero-dark::after{content:"";position:absolute;right:-220px;top:-220px;width:560px;height:560px;border-radius:50%;background:radial-gradient(closest-side,rgba(76,154,255,.38),transparent);pointer-events:none}
+.hero-dark>.wrap{position:relative;z-index:1}
+.hero-dark h1{font-size:clamp(31px,4.6vw,48px);line-height:1.12;font-weight:800;letter-spacing:-.02em;margin:18px 0 18px}
+.hero-dark .lead{font-size:clamp(16.5px,2vw,19.5px);line-height:1.6;color:#cfe1ff;max-width:640px}
+.kicker{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#dcebff;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:999px}
+.page-hero{padding-top:56px;padding-bottom:48px}
+.page-hero .meta{color:#9fc1f7;font-size:14px;margin-top:14px}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--blue);color:#fff;padding:13px 24px;border-radius:10px;font-weight:600;font-size:16px;border:0;cursor:pointer;transition:transform .15s,box-shadow .15s,background .15s;box-shadow:0 8px 20px rgba(12,90,220,.35)}
+.btn:hover{background:var(--blue-dark);text-decoration:none;transform:translateY(-1px);box-shadow:0 10px 24px rgba(12,90,220,.4)}
+.btn.light{background:#fff;color:var(--navy);box-shadow:0 8px 20px rgba(4,16,45,.3)}
+.btn.light:hover{background:var(--accent);color:var(--navy)}
+.btn.ghost{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.4);box-shadow:none}
+.btn.ghost:hover{background:rgba(255,255,255,.2)}
+.btn.soft{background:var(--accent);color:var(--blue-dark);box-shadow:none}
+.btn.soft:hover{background:#d6e8ff;color:var(--blue-dark)}
+.btn-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+
+/* Sections */
+section{padding:64px 0}
+.section-soft{background:var(--soft)}
+.sec-head{max-width:720px;margin-bottom:36px}
+.sec-head h2{font-size:clamp(26px,3.4vw,34px);line-height:1.2;letter-spacing:-.015em;margin:12px 0 10px}
+.sec-head p{color:var(--sub);font-size:17px}
+.pill{display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:#0055cc;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 13px;border-radius:999px}
+
+/* Cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr));gap:20px}
+.cards.four{grid-template-columns:repeat(auto-fit,minmax(min(235px,100%),1fr))}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.card h3{font-size:17.5px;margin-bottom:9px;letter-spacing:-.01em}
+.card p{font-size:14.8px;color:var(--sub)}
+.card .ico{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:12px;background:var(--accent);font-size:20px;margin-bottom:14px}
+.card .ico.num{background:var(--blue);color:#fff;font-weight:700;font-size:18px}
+
+/* Alternating features */
+.feature{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:center;padding:34px 0}
+.feature .media img{width:100%;border-radius:14px;border:1px solid var(--line);box-shadow:var(--shadow);display:block;background:#fff}
+.feature .media a{display:block;border-radius:14px}
+.feature h3{font-size:clamp(21px,2.6vw,26px);letter-spacing:-.015em;margin:12px 0 12px}
+.feature p{color:var(--sub);margin-bottom:10px}
+.feature ul{margin:14px 0 0 2px;list-style:none}
+.feature li{padding-left:28px;position:relative;margin-bottom:9px;color:var(--ink);font-size:15.2px}
+.feature li::before{content:"";position:absolute;left:0;top:4px;width:17px;height:17px;border-radius:50%;background:var(--accent) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="none" stroke="%230055cc" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M3.5 8.5l3 3 6-7"/></svg>') center/11px no-repeat}
+@media(max-width:840px){.feature{grid-template-columns:1fr}.feature .media{order:-1}}
+@media(min-width:841px){.feature.flip .media{order:-1}}
+
+/* Screenshot gallery */
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:24px}
+.shots figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:10px 10px 14px;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s}
+.shots figure:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.shots img{width:100%;border-radius:10px;display:block}
+.shots figcaption{font-size:13.8px;color:var(--sub);margin:10px 4px 0}
+
+/* CTA band */
+.cta-band{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:20px;padding:clamp(28px,5vw,48px);color:#fff;display:flex;flex-wrap:wrap;gap:20px 32px;align-items:center;justify-content:space-between;box-shadow:var(--shadow)}
+.cta-band::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.12) 1px,transparent 1.6px);background-size:24px 24px;pointer-events:none}
+.cta-band>*{position:relative}
+.cta-band h2{font-size:clamp(21px,2.8vw,27px);letter-spacing:-.015em}
+.cta-band p{color:#cfe1ff;font-size:15px;margin-top:6px;max-width:460px}
+
+/* Prose pages (docs, legal) */
+.prose{max-width:780px}
+.prose h2{font-size:clamp(21px,2.6vw,25px);letter-spacing:-.015em;margin:44px 0 14px;padding-top:6px}
+.prose h2 .hash{opacity:0;margin-left:8px;font-weight:600;font-size:.8em;transition:opacity .15s}
+.prose h2:hover .hash{opacity:1}
+.prose h3{font-size:17px;margin:22px 0 8px}
+.prose p{margin-bottom:13px}
+.prose ul,.prose ol{margin:0 0 14px 22px}
+.prose li{margin-bottom:8px}
+.prose code{background:var(--soft);border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:14px}
+.callout{border-radius:var(--r-sm);padding:16px 18px;margin:18px 0;border:1px solid}
+.callout.note{background:var(--accent);border-color:#cce0ff}
+.callout.warn{background:#fff7d6;border-color:#f5cd47}
+.step{background:#fff;border:1px solid var(--line);border-radius:var(--r-sm);padding:20px 22px;margin-bottom:16px;box-shadow:var(--shadow-sm)}
+.step h3{margin:0 0 8px;display:flex;align-items:center;gap:12px}
+.step .n{display:inline-flex;align-items:center;justify-content:center;flex:none;width:30px;height:30px;border-radius:10px;background:var(--blue);color:#fff;font-size:15px;font-weight:700}
+.toc{background:var(--soft);border:1px solid var(--line);border-radius:var(--r);padding:20px 24px;margin:0 0 36px}
+.toc h2{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--sub);margin:0 0 12px}
+.toc ol{margin:0;list-style:none;columns:2;column-gap:32px}
+.toc li{margin-bottom:8px;break-inside:avoid;font-size:15px}
+@media(max-width:560px){.toc ol{columns:1}}
+.doc-img{width:100%;border-radius:14px;border:1px solid var(--line);box-shadow:var(--shadow-sm);display:block;margin:8px 0 16px}
+
+/* Forms */
+form label{display:block;font-weight:600;font-size:14.5px;margin:20px 0 7px}
+input,textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font:inherit;color:var(--ink);background:#fff;transition:border-color .15s,box-shadow .15s}
+input:focus,textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(29,122,252,.25)}
+textarea{min-height:170px;resize:vertical}
+
+/* Footer */
+.site-footer{background:var(--navy);color:#b6ccf2;font-size:14.5px;margin-top:64px}
+.site-footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:center;padding-top:30px;padding-bottom:30px}
+.site-footer a{color:#dcebff}
+.site-footer a:hover{color:#fff}
+
+/* Reveal */
+.reveal.pre{opacity:0;transform:translateY(16px)}
+.reveal.in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal.pre{opacity:1;transform:none}*{transition:none!important}}
 </style>
 </head>
 <body>
-<header>
+<header class="site-header">
   <div class="wrap nav">
-    <div class="logo"><a href="index.html"><img src="logo-512.png" alt="BasicData logo">Basic<b>Data</b></a></div>
-    <nav><a href="docs.html">Docs</a><a href="privacy.html">Privacy</a><a href="impressum.html">Impressum</a><a href="contact.html">Contact</a></nav>
+    <div class="logo"><a href="index.html"><img src="logo-512.png" alt="BasicData logo"><span>Basic<b>Data</b></span></a></div>
+    <nav aria-label="Main"><a href="docs.html">Docs</a><a href="usecases.html">Use cases</a><a href="security.html">Security</a><a href="privacy.html">Privacy</a><a href="impressum.html">Impressum</a><a href="contact.html" aria-current="page">Contact</a></nav>
   </div>
 </header>
-<main class="wrap">
-  <h1>Contact</h1>
-  <p class="lead">Questions about Customer Assets for the JSM Portal, a bug report or a feature idea? Send us a message. We usually reply within one business day.</p>
-  <p style="background:#e9f2ff;border:1px solid #cce0ff;border-radius:8px;padding:14px 16px;margin-bottom:26px">🎫 For product support, the fastest way is our <a href="https://basicdata.atlassian.net/servicedesk/customer/portal/3"><strong>support portal</strong></a> — your request becomes a tracked ticket and you can follow its status anytime.</p>
 
-  <form action="https://formsubmit.co/hello@basicdata.net" method="POST">
+<main id="main">
+<div class="hero-dark">
+  <div class="wrap page-hero">
+    <span class="kicker">Contact</span>
+    <h1>Contact</h1>
+    <p class="lead">Questions about Customer Assets for the JSM Portal, a bug report or a feature idea? Send us a message. We usually reply within one business day.</p>
+  </div>
+</div>
+
+<section style="padding-top:48px">
+  <div class="wrap" style="max-width:760px">
+  <div class="callout note" style="margin:0 0 30px">🎫 For product support, the fastest way is our <a href="https://basicdata.atlassian.net/servicedesk/customer/portal/3"><strong>support portal</strong></a> — your request becomes a tracked ticket and you can follow its status anytime.</div>
+
+  <form action="https://formsubmit.co/hello@basicdata.net" method="POST" class="card" style="padding:30px 28px">
     <input type="hidden" name="_subject" value="Contact form basicdata.net">
     <input type="hidden" name="_template" value="table">
     <input type="hidden" name="_next" value="https://basicdata.net/thanks.html">
     <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
-    <label for="name">Name</label>
+    <label for="name" style="margin-top:0">Name</label>
     <input id="name" type="text" name="name" required>
 
     <label for="email">Your email</label>
@@ -63,15 +184,27 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;
     <label for="message">Message</label>
     <textarea id="message" name="message" required></textarea>
 
-    <button class="btn" type="submit">Send message</button>
-    <p class="hint">Your message is delivered to us by the form service FormSubmit. Details in the <a href="privacy.html">privacy policy</a>.</p>
+    <button class="btn" type="submit" style="margin-top:24px">Send message</button>
+    <p style="font-size:13px;color:var(--sub);margin-top:16px">Your message is delivered to us by the form service FormSubmit. Details in the <a href="privacy.html">privacy policy</a>.</p>
   </form>
+  </div>
+</section>
 </main>
-<footer>
+
+<footer class="site-footer">
   <div class="wrap">
     <span>© 2026 BasicData, Berlin</span>
-    <span><a href="privacy.html">Privacy</a> · <a href="impressum.html">Impressum</a> · <a href="contact.html">Contact</a></span>
+    <span><a href="docs.html">Docs</a> · <a href="https://basicdata.atlassian.net/servicedesk/customer/portal/3">Support</a> · <a href="security.html">Security</a> · <a href="privacy.html">Privacy</a> · <a href="impressum.html">Impressum</a> · <a href="contact.html">Contact</a></span>
   </div>
 </footer>
+<script>
+(function(){
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  if(!('IntersectionObserver' in window))return;
+  var els=document.querySelectorAll('.reveal');
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -5% 0px'});
+  els.forEach(function(el){el.classList.add('pre');io.observe(el)});
+})();
+</script>
 </body>
 </html>
