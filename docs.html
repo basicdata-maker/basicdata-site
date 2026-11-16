@@ -201,7 +201,7 @@ textarea{min-height:170px;resize:vertical}
       <li><strong>Site-admin permissions</strong> for configuration.</li>
     </ul>
     <div class="callout warn">
-      <strong>⚠️ Mandatory prerequisite: Assets field configuration.</strong>
+      <strong><span aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:5px;color:#b25e00"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5L21 19.5H3L12 4.5z"/><path d="M12 10v4.2M12 16.8v.1"/></svg></span>Mandatory prerequisite: Assets field configuration.</strong>
       The Jira custom field of type <em>"Assets objects"</em> links tickets to assets. It needs a complete <strong>Assets field configuration</strong>: assign your object schema and set the <strong>searchable attributes</strong> (ideally including <em>Key</em>) in <em>Jira admin → Issues → Custom fields → your Assets field → Configure</em>. The field must also be on the <strong>screens of the target project</strong>. Without this, asset linking fails with <code>cmdb.config.not.found</code>. The built-in check ("Verify field" in step 2 of the configuration) detects exactly this case and tells you what to fix.
     </div>
 
