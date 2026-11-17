@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en" class="has-subnav">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Documentation · Customer Assets for the JSM Portal | BasicData</title>
+<meta name="description" content="Setup guide, security model, FAQ and troubleshooting for Customer Assets for the JSM Portal, the self-service asset view in the Jira Service Management customer portal.">
+<link rel="canonical" href="https://basicdata.net/customer-assets/docs/">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b0d10">
+<link rel="icon" type="image/svg+xml" href="/basicdata-logo.svg">
+<link rel="icon" type="image/png" sizes="512x512" href="/logo-512.png">
+<link rel="apple-touch-icon" href="/logo-512.png">
+<meta property="og:site_name" content="BasicData">
+<meta property="og:title" content="Documentation · Customer Assets for the JSM Portal | BasicData">
+<meta property="og:description" content="Setup guide, security model, FAQ and troubleshooting for Customer Assets for the JSM Portal, the self-service asset view in the Jira Service Management customer portal.">
+<meta property="og:url" content="https://basicdata.net/customer-assets/docs/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://basicdata.net/logo-512.png">
+<meta name="twitter:card" content="summary">
+<script>try{var t=localStorage.getItem('bd-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/site.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/" aria-label="BasicData home"><img src="/logo-512.png" alt="" width="28" height="28"><span>BasicData</span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <div class="site-nav" id="site-nav">
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          <li class="has-dd">
+            <button class="dd-toggle" type="button" aria-expanded="false" aria-controls="dd-products">Products <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button>
+            <div class="dd-panel" id="dd-products" hidden>
+              <div class="dd-label">Apps for Jira Service Management</div>
+              <a class="dd-item" href="/customer-assets/"><img src="/app-icon-512.png" alt="" width="40" height="40"><span><strong>Customer Assets for the JSM Portal</strong><span>Customers see, update and report their own assets in the Jira Service Management portal.</span></span></a>
+              <div class="dd-foot">More apps are in the works.</div>
+            </div>
+          </li>
+          <li><a href="/customer-assets/docs/" aria-current="page">Docs</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/customer-assets/whats-new/">What&rsquo;s new</a></li>
+          <li><a href="/security.html">Security</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-tools">
+        <div class="theme-switch" role="group" aria-label="Color theme">
+          <button type="button" data-theme-set="system" aria-pressed="true" title="System theme"><span class="visually-hidden">System</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="4.5" width="17" height="12" rx="2"/><path d="M9 20h6M12 16.5V20"/></svg></button>
+          <button type="button" data-theme-set="light" aria-pressed="false" title="Light theme"><span class="visually-hidden">Light</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg></button>
+          <button type="button" data-theme-set="dark" aria-pressed="false" title="Dark theme"><span class="visually-hidden">Dark</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19.5 14.5A7.5 7.5 0 0 1 9.5 4.5a7.5 7.5 0 1 0 10 10z"/></svg></button>
+        </div>
+        <a class="btn btn-sm" href="https://marketplace.atlassian.com/apps/3678048516">Start free</a>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="subnav p-ca">
+  <div class="wrap subnav-inner">
+    <a class="subnav-brand" href="/customer-assets/"><img src="/app-icon-512.png" alt="" width="24" height="24"><span>Customer Assets</span></a>
+    <nav class="subnav-links" aria-label="Customer Assets"><a href="/customer-assets/">Overview</a><a href="/customer-assets/use-cases/">Use cases</a><a href="/customer-assets/whats-new/">What&rsquo;s new</a><a href="/customer-assets/docs/" aria-current="page">Docs</a><a href="https://marketplace.atlassian.com/apps/3678048516?tab=pricing">Pricing</a></nav>
+    <a class="btn btn-sm" href="https://marketplace.atlassian.com/apps/3678048516">Start free trial</a>
+  </div>
+</div>
+<main id="main" tabindex="-1">
+<section class="hero page-hero p-hero p-ca" aria-labelledby="docs-h">
+  <div class="wrap">
+    <span class="eyebrow"><img src="/app-icon-512.png" alt="" width="22" height="22">Customer Assets docs</span>
+    <h1 id="docs-h">Documentation</h1>
+    <p class="lead">Setup guide, concepts and FAQ for <strong>Customer Assets for the JSM Portal</strong>.</p>
+    <p class="meta">For app version 3.x</p>
+  </div>
+</section>
+<section class="section-tight p-ca">
+  <div class="wrap docs-layout">
+    <nav class="toc" aria-labelledby="toc-h">
+      <h2 id="toc-h">On this page</h2>
+      <ol>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#getting-started">Getting started</a></li>
+        <li><a href="#core-concepts">Core concepts</a></li>
+        <li><a href="#portal-experience">Configuring the portal experience</a></li>
+        <li><a href="#tickets">Tickets &amp; request types</a></li>
+        <li><a href="#editing">Editing &amp; creating assets</a></li>
+        <li><a href="#troubleshooting">Troubleshooting</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#data-storage">Data storage &amp; privacy</a></li>
+        <li><a href="#support">Support</a></li>
+      </ol>
+    </nav>
+    <div class="prose">
+
+    <section id="overview" aria-labelledby="overview-h">
+    <h2 id="overview-h">Overview <a class="hash" href="#overview" aria-label="Link to Overview">#</a></h2>
+    <p><strong>Customer Assets for the JSM Portal</strong> gives your customers a secure self-service view of their assigned assets (Assets / Insight in Jira Service Management) inside the Jira Service Management help center. Customers see exactly the devices, licenses and other objects assigned to them, edit what you allow them to edit, and raise asset-linked requests: report a problem, register an asset, request a change or ask a question.</p>
+    <p>Not sure what to model beyond IT hardware? The <a href="/customer-assets/use-cases/">use cases page</a> shows how the same pattern works for licenses, fleet, facilities, MSP customer portals, rental, education and healthcare.</p>
+    </section>
+
+    <section id="getting-started" aria-labelledby="getting-started-h">
+    <h2 id="getting-started-h">Getting started <a class="hash" href="#getting-started" aria-label="Link to Getting started">#</a></h2>
+
+    <h3 id="requirements">Requirements</h3>
+    <p>Before you configure anything, make sure you have:</p>
+    <ul>
+      <li><strong>Jira Service Management Cloud with Assets</strong> (Premium or Enterprise). The app reads your existing Assets (CMDB) data; it does not bring its own database.</li>
+      <li><strong>An asset schema with an owner per object type.</strong> Ownership is either a user attribute on the object itself, or an object reference to a linked object (for example an Employee record) that carries the user attribute. The app auto-suggests likely candidates, including linked-object paths.</li>
+      <li><strong>A Jira Service Management project with request types</strong> the app can use for asset requests (problems, questions, registrations, change requests).</li>
+      <li><strong>An "Assets objects" custom field</strong> to link tickets to assets (see the prerequisite box below).</li>
+      <li><strong>Site-admin permissions</strong> for configuration.</li>
+    </ul>
+    <div class="callout warn">
+      <strong><span aria-hidden="true" class="callout-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5L21 19.5H3L12 4.5z"/><path d="M12 10v4.2M12 16.8v.1"/></svg></span>Mandatory prerequisite: Assets field configuration.</strong>
+      The Jira custom field of type <em>"Assets objects"</em> links tickets to assets. It needs a complete <strong>Assets field configuration</strong>: assign your object schema and set the <strong>searchable attributes</strong> (ideally including <em>Key</em>) in <em>Jira admin → Issues → Custom fields → your Assets field → Configure</em>. The field must also be on the <strong>screens of the target project</strong>. Without this, asset linking fails with <code>cmdb.config.not.found</code>. The built-in check ("Verify field" in step 2 of the configuration) detects exactly this case and tells you what to fix.
+    </div>
+
+    <h3 id="setup">Setup in 4 steps</h3>
+
+    <div class="step"><h3><span class="n" aria-hidden="true">1</span>Open the configuration</h3>
+    <p>After installing, go to <strong>Jira administration → Apps → "Customer Assets — Configuration"</strong>. On first run the <strong>setup wizard</strong> starts automatically, with a contextual help panel and an illustrated example at every step. The admin page also shows a <strong>setup status panel</strong>: four plain-language health checks (asset database, owner mapping, Jira asset field, reporting paths), each with a fix button that takes you to the right place.</p>
+    <p>In a hurry? The wizard's <strong>automatic suggestion</strong> scans your service project and asset database and fills in all four steps with one click. You only review the result.</p></div>
+
+    <div class="step"><h3><span class="n" aria-hidden="true">2</span>Connect tickets</h3>
+    <p>Pick your Jira Service Management <strong>service desk</strong> and the <strong>request types</strong> for asset issues and asset registrations, and select the <strong>Assets custom field</strong> used to link the affected asset. Then click <strong>"Verify field"</strong>. It checks field existence, type, screen assignment and the Assets field configuration end to end.</p></div>
+
+    <div class="step"><h3><span class="n" aria-hidden="true">3</span>Connect assets</h3>
+    <p>Choose your <strong>object schema</strong> and the <strong>object types</strong> customers should see. For each type, confirm the auto-suggested <strong>owner attribute</strong>; it scopes every query to the signed-in customer. If ownership lives on a linked object, use the path notation <code>Reference attribute -&gt; User attribute</code>, for example <code>Employee -&gt; User</code>. The suggestions include these paths automatically.</p>
+    <p>While you map owners, a <strong>live preview</strong> shows what the portal would list for you with the current, still unsaved selection. If your own assets appear, the mapping is right.</p></div>
+
+    <div class="step"><h3><span class="n" aria-hidden="true">4</span>Shape the experience</h3>
+    <p>Per object type you set card attributes, a status attribute with color mapping, visible detail attributes, editability (direct edit, change request or read-only) and icons. You can also add portal languages and translate object-type and attribute names. An optional <strong>dashboard start view</strong> (counters, status distribution, recent updates, quick actions) can be enabled globally.</p></div>
+
+    <p class="doc-img"><a class="shot" href="/shot-admin.png"><img src="/shot-admin.png" alt="Guided admin configuration with setup guide and live progress" width="1280" height="800" loading="lazy"></a></p>
+
+    <div class="callout note">Configuration is stored in Forge Key-Value Storage on your own site and can be changed anytime without redeploying. "Reset configuration" in the admin page wipes it completely.</div>
+    </section>
+
+    <section id="core-concepts" aria-labelledby="core-concepts-h">
+    <h2 id="core-concepts-h">Core concepts <a class="hash" href="#core-concepts" aria-label="Link to Core concepts">#</a></h2>
+
+    <h3>Ownership and the owner attribute</h3>
+    <p>Everything in the app revolves around one question: <em>which Atlassian account does this object belong to?</em> The answer comes from the <strong>owner attribute</strong> you configure per object type. It must be (or lead to) a user-type attribute that holds the customer's Atlassian account. When a customer opens the portal, the app looks up objects whose owner attribute matches their account, and nothing else.</p>
+
+    <h3>Ownership via a linked reference object</h3>
+    <p>Many schemas do not store the user directly on the asset. Instead, a Laptop references an Employee object, and the Employee object carries the user attribute. The app supports this with a two-step owner path: <code>Reference attribute -&gt; User attribute</code>, for example <code>Employee -&gt; User</code> or <code>Contact -&gt; User</code>. Resolution happens server-side with the same scoping guarantees as a direct attribute. You can mix both styles across object types in one configuration.</p>
+
+    <h3 id="security-model">The visibility model: default-deny</h3>
+    <p>The app never shows an object unless it can positively prove ownership:</p>
+    <ul>
+      <li>Every resolver call takes the customer's identity from the signed Forge context, never from the frontend, and wraps <strong>every</strong> AQL query in a scope-binding predicate.</li>
+      <li>No resolvable account ID means an empty result set, even against a manipulated frontend.</li>
+      <li>Object types you have not enabled in the configuration are invisible, full stop.</li>
+      <li>Updates are re-authorized server-side before anything is written.</li>
+    </ul>
+    <p>In short: if the configuration or the data does not explicitly connect an object to the signed-in customer, the customer does not see it.</p>
+    </section>
+
+    <section id="portal-experience" aria-labelledby="portal-experience-h">
+    <h2 id="portal-experience-h">Configuring the portal experience <a class="hash" href="#portal-experience" aria-label="Link to Configuring the portal experience">#</a></h2>
+    <p>All presentation settings live in step 4 of the configuration and are set <strong>per object type</strong>, so laptops can look different from licenses.</p>
+    <p><strong>Card attributes.</strong> Choose which attributes appear on the asset card in the list view. Pick the few that let a customer recognize the object at a glance, such as model, serial number or renewal date.</p>
+    <p><strong>Status badge and colors.</strong> Select one attribute as the status attribute and map each of its values to a badge color. Customers then see at a glance whether something is active, in repair or due for return. The mapping references status values <strong>by name</strong>, so keep it in sync when you rename statuses in the schema (see <a href="#troubleshooting">Troubleshooting</a>).</p>
+    <p><strong>Detail view attributes.</strong> Decide which attributes the detail view shows, and in which order. You can expose more here than on the card. Attributes you leave out stay hidden from customers entirely.</p>
+    <p><strong>Translations.</strong> Object-type and attribute names come from your schema, which is often internal jargon. You can translate both per portal language, so "NB-HW-Pool" can appear as "Laptop" to customers.</p>
+    <p><strong>Languages.</strong> The app UI ships in English and German and follows each user's Atlassian profile language. You can add portal languages for your translated type and attribute names in the configuration.</p>
+    <p><strong>Dashboard start view.</strong> Optionally, customers land on a dashboard instead of the plain list: asset counters, status distribution, recently updated objects and quick actions. Enable or disable it globally.</p>
+    </section>
+
+    <section id="tickets" aria-labelledby="tickets-h">
+    <h2 id="tickets-h">Tickets and request types <a class="hash" href="#tickets" aria-label="Link to Tickets and request types">#</a></h2>
+    <p>The app turns asset context into ordinary Jira Service Management requests, so your agents keep working in the tools they know.</p>
+    <p><strong>Report a problem.</strong> From any asset, the customer opens a problem report. The ticket is created with your configured request type and the asset already linked in the Assets custom field.</p>
+    <p><strong>Ask a question.</strong> Same flow, different request type: for anything that is not a defect, such as "can I get a second charger for this?".</p>
+    <p><strong>Change requests.</strong> When an object type is set to <em>change request</em> editability, a customer's edit does not touch the object. Instead the app raises a ticket that describes the requested change; your team reviews it and applies it (or does not). The asset is linked, so the agent sees exactly what the change refers to.</p>
+    <p><strong>Register an asset.</strong> Customers can request a new asset. By default this also raises a ticket for your team, keeping data quality and the audit trail in your hands.</p>
+    <p><strong>How the asset gets linked.</strong> All of these tickets are created with the affected object set in the "Assets objects" custom field you configured in step 2. That is why the field's own Assets field configuration is a hard prerequisite.</p>
+    <p><strong>Routing.</strong> You choose the service desk and the request type per flow in step 2, so problems, questions, registrations and change requests can land in different queues with different workflows and SLAs. Agents also see the reporter's assets in the <strong>"Reporter Assets"</strong> glance in the issue view.</p>
+    </section>
+
+    <section id="editing" aria-labelledby="editing-h">
+    <h2 id="editing-h">Editing and creating assets <a class="hash" href="#editing" aria-label="Link to Editing and creating assets">#</a></h2>
+    <p>Per object type, you pick one of three editability modes:</p>
+    <ul>
+      <li><strong>Read-only.</strong> Customers can view the object and raise tickets about it, nothing more. A good default for anything your team must control tightly.</li>
+      <li><strong>Change request.</strong> Customers submit edits as reviewed tickets. Nothing changes in Assets until an agent applies it. Use this for attributes where you want a human in the loop, such as license cancellations.</li>
+      <li><strong>Direct edit.</strong> Customers edit the allowed attributes themselves and the change is written to Assets immediately, after server-side re-authorization. Use this for low-risk, customer-owned data such as a device nickname or location.</li>
+    </ul>
+    <p><strong>Who may create objects?</strong> "Register asset" raises a ticket by default. Per object type you can alternatively allow direct creation by customers. Either way, customers can only ever create or edit objects within the types and attributes you expose; the schema itself stays under admin control.</p>
+    </section>
+
+    <section id="troubleshooting" aria-labelledby="troubleshooting-h">
+    <h2 id="troubleshooting-h">Troubleshooting <a class="hash" href="#troubleshooting" aria-label="Link to Troubleshooting">#</a></h2>
+    <h3>The portal shows a subscription notice instead of assets.</h3>
+    <p>The app has no active subscription on this site. A Jira admin can start or manage the subscription in Atlassian Administration under <em>Billing</em>. New installs include a 30-day free trial; during the trial all features are available.</p>
+    <h3>The portal stays empty for every customer.</h3>
+    <p>Open the admin configuration and check the setup status panel: it tells you which of the four checks fails. The two usual causes are an unfinished owner mapping (step 3) and an Assets field configuration problem (run "Verify field" in step 2).</p>
+    <h3>An attribute is missing on the asset card or detail view.</h3>
+    <p>Card and detail attributes are selected per object type in step 4. If an attribute was added to the schema later, re-open step 4 and add it to the visible attributes.</p>
+    <h3>Configuration changes do not seem to apply.</h3>
+    <p>Changes are saved to Forge storage and take effect immediately; no redeploy or reinstall is needed. Ask the customer to reload the portal page. If the effect is still missing, check that you edited the object type the customer is actually looking at.</p>
+    <h3>A renamed status or attribute broke colors or card labels.</h3>
+    <p>The app references status values and attributes <strong>by name</strong>. If you rename a status value or an attribute in the Assets schema, the old name in the configuration no longer matches: status badges fall back to a neutral color, and renamed attributes disappear from cards and detail views. Re-open step 4 for the affected object type, re-select the attribute under its new name and re-map the status colors.</p>
+    <h3>One specific customer sees the wrong assets, or someone else's.</h3>
+    <p>The owner attribute on those objects points at the wrong account. Open the objects in Assets and check the user stored in the owner attribute (or, for linked ownership, the user on the referenced Employee/Contact object). Common causes: a rehired employee with a new Atlassian account, or an owner path that points at a manager attribute instead of the user attribute. The live preview in step 3 helps you verify the mapping with real data.</p>
+    <h3>A customer cannot find "My Assets" in the help center.</h3>
+    <p>"My Assets" is opened from the customer portal <strong>user menu</strong> (the avatar), not from the request-type tiles. Ask the customer to sign in first; anonymous visitors do not get the menu entry. If it is still missing, confirm the app is installed and subscribed on this site and that the configuration has been saved at least once.</p>
+    <h3>Translated names are not showing.</h3>
+    <p>Translations apply per portal language and follow each user's <strong>Atlassian profile language</strong>. If a customer still sees schema names, check that a translation exists for exactly their language in the configuration, and that it was saved for the right object type. The app UI itself is available in English and German; for other profile languages the UI falls back to English while your type and attribute translations still apply where defined.</p>
+    </section>
+
+    <section id="faq" aria-labelledby="faq-h">
+    <h2 id="faq-h">FAQ <a class="hash" href="#faq" aria-label="Link to FAQ">#</a></h2>
+    <h3>Does any asset data leave our Atlassian site?</h3>
+    <p>No. The app runs entirely on Atlassian Forge, has no external endpoints and qualifies for the <strong>"Runs on Atlassian"</strong> badge. Asset data is read at request time, scoped to the signed-in customer, and never copied or sent anywhere. See <a href="#data-storage">Data storage &amp; privacy</a>.</p>
+    <h3>What exactly can a customer see?</h3>
+    <p>Only objects of the types you enabled, and only those whose configured owner attribute resolves to their own Atlassian account. The check runs server-side on every query, default-deny. Attributes you did not add to the card or detail view stay hidden.</p>
+    <h3 id="pricing">What does it cost, and how does the trial work?</h3>
+    <p>The app is paid via Atlassian: flat USD 5/month for sites with up to 10 users, then USD 0.50 per user per month. Every new subscription starts with a <strong>30-day free trial</strong> with all features, managed entirely through Atlassian billing. No card, no separate account.</p>
+    <h3>Can we use more than one object schema?</h3>
+    <p>The configuration connects one object schema with as many object types as you like, each with its own owner mapping and presentation. If you keep, say, IT and Facilities data in separate schemas, consolidate the customer-facing types into the connected schema or get in touch; multi-schema support is a request we track.</p>
+    <h3>Is this "Insight" or "Assets"?</h3>
+    <p>Both names refer to the same Jira feature: Atlassian renamed Insight to <strong>Assets</strong>. The app works with Assets in Jira Service Management Cloud Premium and Enterprise. Our docs say Assets; everything applies if you still call it Insight.</p>
+    <h3>What happens when the "Verify field" check fails?</h3>
+    <p>Follow the message shown for the failing check. It points at a wrong field type, a missing screen assignment in the target project, or an incomplete Assets field configuration. The last one is the most common cause of <code>cmdb.config.not.found</code>; see the prerequisite box under <a href="#getting-started">Getting started</a>.</p>
+    <h3>Does the app create Insight/Assets objects directly?</h3>
+    <p>"Register asset" raises a ticket for your team by default, keeping data quality and audit trail in your hands. Per object type you can alternatively allow direct creation and editing by customers.</p>
+    <h3>Are there performance or size limits?</h3>
+    <p>The app queries Assets live via scoped AQL, so portal lists reflect your data without a sync step. Very large per-customer result sets are paginated in the portal. Forge and Assets platform limits (API rate limits, Forge execution limits) apply as on any Forge app; in normal use customers hold tens of assets, not thousands, and the portal stays fast.</p>
+    <h3>Which languages are supported?</h3>
+    <p>The app UI ships in English and German and follows each user's Atlassian profile language. Object-type and attribute names can be translated per portal language in the configuration.</p>
+    <h3>Can customers see assets owned by their whole organization, not just themselves?</h3>
+    <p>Today ownership is per person, including via a linked person record such as <code>Contact -&gt; User</code>. Organization-wide ownership is on our roadmap; if you need it, tell us about your setup via the <a href="https://basicdata.atlassian.net/servicedesk/customer/portal/3">support portal</a> so we can prioritize and design it around real cases.</p>
+    </section>
+
+    <section id="data-storage" aria-labelledby="data-storage-h">
+    <h2 id="data-storage-h">Data storage &amp; privacy <a class="hash" href="#data-storage" aria-label="Link to Data storage and privacy">#</a></h2>
+    <p>The configuration lives in Forge Key-Value Storage on your own Atlassian site. Asset data stays in Assets: the app reads it at request time, scoped to the signed-in customer, and keeps no copies. There are no external endpoints and no data egress, which is why the app qualifies for the "Runs on Atlassian" badge. Details are in the <a href="/privacy.html">privacy policy</a>.</p>
+    </section>
+
+    <section id="support" aria-labelledby="support-h">
+    <h2 id="support-h">Support <a class="hash" href="#support" aria-label="Link to Support">#</a></h2>
+    <p>The fastest way is a ticket in our <a href="https://basicdata.atlassian.net/servicedesk/customer/portal/3">support portal</a>; we respond within one business day. Alternatively use the <a href="/contact.html">contact form</a>. Please include your site URL (no credentials!), the app version and, for configuration issues, a screenshot of the "Verify field" result.</p>
+    </section>
+
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/"><img src="/logo-512.png" alt="" width="28" height="28"><span>BasicData</span></a>
+        <p>Practical Forge apps that close the gaps in Jira Service Management.</p>
+      </div>
+      <div class="footer-col"><h2>Products</h2><ul>
+        <li><a href="/customer-assets/">Customer Assets</a></li>
+        <li><a href="https://marketplace.atlassian.com/apps/3678048516">Atlassian Marketplace</a></li>
+      </ul></div>
+      <div class="footer-col"><h2>Resources</h2><ul>
+        <li><a href="/customer-assets/docs/">Docs</a></li>
+        <li><a href="/customer-assets/use-cases/">Use cases</a></li>
+        <li><a href="/customer-assets/whats-new/">What&rsquo;s new</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="https://basicdata.atlassian.net/servicedesk/customer/portal/3">Support portal</a></li>
+      </ul></div>
+      <div class="footer-col"><h2>Company</h2><ul>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="/security.html">Security</a></li>
+      </ul></div>
+      <div class="footer-col"><h2>Legal</h2><ul>
+        <li><a href="/privacy.html">Privacy</a></li>
+        <li><a href="/impressum.html">Impressum</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 BasicData, Berlin</span>
+      <span>Built for Jira, on Atlassian Forge.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

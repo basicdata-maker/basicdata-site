@@ -3,330 +3,188 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" type="image/png" href="logo-512.png">
-<link rel="apple-touch-icon" href="logo-512.png">
 <title>BasicData · Practical Forge apps for Jira Service Management</title>
 <meta name="description" content="BasicData builds practical Atlassian Forge apps that close the gaps in Jira Service Management. Maker of Customer Assets for the JSM Portal.">
+<link rel="canonical" href="https://basicdata.net/">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b0d10">
+<link rel="icon" type="image/svg+xml" href="/basicdata-logo.svg">
+<link rel="icon" type="image/png" sizes="512x512" href="/logo-512.png">
+<link rel="apple-touch-icon" href="/logo-512.png">
+<meta property="og:site_name" content="BasicData">
 <meta property="og:title" content="BasicData · Practical Forge apps for Jira Service Management">
-<meta property="og:description" content="Customer Assets for the JSM Portal: a secure self-service asset view in the JSM customer portal. Runs on Atlassian, no data egress.">
-<meta property="og:image" content="https://basicdata.net/logo-512.png">
+<meta property="og:description" content="BasicData builds practical Atlassian Forge apps that close the gaps in Jira Service Management. Maker of Customer Assets for the JSM Portal.">
 <meta property="og:url" content="https://basicdata.net/">
 <meta property="og:type" content="website">
-<style>
-:root{
-  --blue:#1d7afc;--blue-dark:#0c66e4;--navy:#0b2a66;--navy-2:#123d91;
-  --ink:#172b4d;--sub:#44546f;--line:#dfe1e6;--soft:#f7f8f9;--accent:#e9f2ff;
-  --r:16px;--r-sm:12px;
-  --shadow:0 14px 40px rgba(9,30,66,.12);--shadow-sm:0 4px 16px rgba(9,30,66,.07);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:92px}
-body{font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff;-webkit-text-size-adjust:100%;overflow-wrap:break-word}
-img{max-width:100%;height:auto}
-a{color:var(--blue);text-decoration:none}
-a:hover{text-decoration:underline}
-:focus-visible{outline:3px solid var(--blue);outline-offset:2px;border-radius:6px}
-.hero-dark :focus-visible,.cta-band :focus-visible,.site-footer :focus-visible{outline-color:#fff}
-.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
-@media(min-width:480px){.wrap{padding:0 28px}}
-
-/* Header */
-.site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:saturate(1.6) blur(14px);-webkit-backdrop-filter:saturate(1.6) blur(14px);border-bottom:1px solid rgba(9,30,66,.08)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:8px 16px;padding-top:12px;padding-bottom:12px;flex-wrap:wrap}
-.logo a{display:inline-flex;align-items:center;gap:10px;font-size:19px;font-weight:700;color:var(--ink);letter-spacing:-.01em}
-.logo a:hover{text-decoration:none}
-.logo img{width:32px;height:32px;border-radius:8px;display:block}
-.logo b{color:var(--blue)}
-.nav nav{display:flex;flex-wrap:wrap;gap:2px}
-.nav nav a{color:var(--sub);font-size:14.5px;font-weight:500;padding:7px 11px;border-radius:999px;transition:background .15s,color .15s}
-.nav nav a:hover{background:var(--accent);color:var(--blue-dark);text-decoration:none}
-.nav nav a[aria-current="page"]{background:var(--accent);color:var(--blue-dark);font-weight:600}
-@media(max-width:480px){.nav nav a{padding:6px 8px;font-size:13.5px}}
-
-/* Dark hero */
-.hero-dark{position:relative;overflow:hidden;background:linear-gradient(135deg,#0b2a66 0%,#123d91 52%,#1d7afc 135%);color:#fff}
-.hero-dark::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.13) 1px,transparent 1.6px);background-size:26px 26px;-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.9),transparent 80%);mask-image:linear-gradient(to bottom,rgba(0,0,0,.9),transparent 80%);pointer-events:none}
-.hero-dark::after{content:"";position:absolute;right:-220px;top:-220px;width:560px;height:560px;border-radius:50%;background:radial-gradient(closest-side,rgba(76,154,255,.38),transparent);pointer-events:none}
-.hero-dark>.wrap{position:relative;z-index:1}
-.hero-dark h1{font-size:clamp(31px,4.6vw,48px);line-height:1.12;font-weight:800;letter-spacing:-.02em;margin:18px 0 18px}
-.hero-dark .lead{font-size:clamp(16.5px,2vw,19.5px);line-height:1.6;color:#cfe1ff;max-width:640px}
-.kicker{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#dcebff;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:999px}
-.page-hero{padding-top:56px;padding-bottom:48px}
-.page-hero .meta{color:#9fc1f7;font-size:14px;margin-top:14px}
-
-/* Buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--blue);color:#fff;padding:13px 24px;border-radius:10px;font-weight:600;font-size:16px;border:0;cursor:pointer;transition:transform .15s,box-shadow .15s,background .15s;box-shadow:0 8px 20px rgba(12,90,220,.35)}
-.btn:hover{background:var(--blue-dark);text-decoration:none;transform:translateY(-1px);box-shadow:0 10px 24px rgba(12,90,220,.4)}
-.btn.light{background:#fff;color:var(--navy);box-shadow:0 8px 20px rgba(4,16,45,.3)}
-.btn.light:hover{background:var(--accent);color:var(--navy)}
-.btn.ghost{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.4);box-shadow:none}
-.btn.ghost:hover{background:rgba(255,255,255,.2)}
-.btn.soft{background:var(--accent);color:var(--blue-dark);box-shadow:none}
-.btn.soft:hover{background:#d6e8ff;color:var(--blue-dark)}
-.btn-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-
-/* Sections */
-section{padding:64px 0}
-.section-soft{background:var(--soft)}
-.sec-head{max-width:720px;margin-bottom:36px}
-.sec-head h2{font-size:clamp(26px,3.4vw,34px);line-height:1.2;letter-spacing:-.015em;margin:12px 0 10px}
-.sec-head p{color:var(--sub);font-size:17px}
-.pill{display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:#0055cc;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 13px;border-radius:999px}
-
-/* Cards */
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr));gap:20px}
-.cards.four{grid-template-columns:repeat(auto-fit,minmax(min(235px,100%),1fr))}
-.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s}
-.card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
-.card h3{font-size:17.5px;margin-bottom:9px;letter-spacing:-.01em}
-.card p{font-size:14.8px;color:var(--sub)}
-.card .ico{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:12px;background:var(--accent);color:var(--blue);margin-bottom:14px}
-.card .ico.num{background:var(--blue);color:#fff;font-weight:700;font-size:18px}
-
-/* Alternating features */
-.feature{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:center;padding:34px 0}
-.feature .media img{width:100%;border-radius:14px;border:1px solid var(--line);box-shadow:var(--shadow);display:block;background:#fff}
-.feature .media a{display:block;border-radius:14px}
-.feature h3{font-size:clamp(21px,2.6vw,26px);letter-spacing:-.015em;margin:12px 0 12px}
-.feature p{color:var(--sub);margin-bottom:10px}
-.feature ul{margin:14px 0 0 2px;list-style:none}
-.feature li{padding-left:28px;position:relative;margin-bottom:9px;color:var(--ink);font-size:15.2px}
-.feature li::before{content:"";position:absolute;left:0;top:4px;width:17px;height:17px;border-radius:50%;background:var(--accent) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="none" stroke="%230055cc" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M3.5 8.5l3 3 6-7"/></svg>') center/11px no-repeat}
-@media(max-width:840px){.feature{grid-template-columns:1fr}.feature .media{order:-1}}
-@media(min-width:841px){.feature.flip .media{order:-1}}
-
-/* Screenshot gallery */
-.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:24px}
-.shots figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:10px 10px 14px;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s}
-.shots figure:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
-.shots img{width:100%;border-radius:10px;display:block}
-.shots figcaption{font-size:13.8px;color:var(--sub);margin:10px 4px 0}
-
-/* CTA band */
-.cta-band{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:20px;padding:clamp(28px,5vw,48px);color:#fff;display:flex;flex-wrap:wrap;gap:20px 32px;align-items:center;justify-content:space-between;box-shadow:var(--shadow)}
-.cta-band::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.12) 1px,transparent 1.6px);background-size:24px 24px;pointer-events:none}
-.cta-band>*{position:relative}
-.cta-band h2{font-size:clamp(21px,2.8vw,27px);letter-spacing:-.015em}
-.cta-band p{color:#cfe1ff;font-size:15px;margin-top:6px;max-width:460px}
-
-/* Prose pages (docs, legal) */
-.prose{max-width:780px}
-.prose h2{font-size:clamp(21px,2.6vw,25px);letter-spacing:-.015em;margin:44px 0 14px;padding-top:6px}
-.prose h2 .hash{opacity:0;margin-left:8px;font-weight:600;font-size:.8em;transition:opacity .15s}
-.prose h2:hover .hash{opacity:1}
-.prose h3{font-size:17px;margin:22px 0 8px}
-.prose p{margin-bottom:13px}
-.prose ul,.prose ol{margin:0 0 14px 22px}
-.prose li{margin-bottom:8px}
-.prose code{background:var(--soft);border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:14px}
-.callout{border-radius:var(--r-sm);padding:16px 18px;margin:18px 0;border:1px solid}
-.callout.note{background:var(--accent);border-color:#cce0ff}
-.callout.warn{background:#fff7d6;border-color:#f5cd47}
-.step{background:#fff;border:1px solid var(--line);border-radius:var(--r-sm);padding:20px 22px;margin-bottom:16px;box-shadow:var(--shadow-sm)}
-.step h3{margin:0 0 8px;display:flex;align-items:center;gap:12px}
-.step .n{display:inline-flex;align-items:center;justify-content:center;flex:none;width:30px;height:30px;border-radius:10px;background:var(--blue);color:#fff;font-size:15px;font-weight:700}
-.toc{background:var(--soft);border:1px solid var(--line);border-radius:var(--r);padding:20px 24px;margin:0 0 36px}
-.toc h2{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--sub);margin:0 0 12px}
-.toc ol{margin:0;list-style:none;columns:2;column-gap:32px}
-.toc li{margin-bottom:8px;break-inside:avoid;font-size:15px}
-@media(max-width:560px){.toc ol{columns:1}}
-.doc-img{width:100%;border-radius:14px;border:1px solid var(--line);box-shadow:var(--shadow-sm);display:block;margin:8px 0 16px}
-
-/* Forms */
-form label{display:block;font-weight:600;font-size:14.5px;margin:20px 0 7px}
-input,textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font:inherit;color:var(--ink);background:#fff;transition:border-color .15s,box-shadow .15s}
-input:focus,textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(29,122,252,.25)}
-textarea{min-height:170px;resize:vertical}
-
-/* Footer */
-.site-footer{background:var(--navy);color:#b6ccf2;font-size:14.5px;margin-top:64px}
-.site-footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:center;padding-top:30px;padding-bottom:30px}
-.site-footer a{color:#dcebff}
-.site-footer a:hover{color:#fff}
-
-/* Reveal */
-.reveal.pre{opacity:0;transform:translateY(16px)}
-.reveal.in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal.pre{opacity:1;transform:none}*{transition:none!important}}
-</style>
+<meta property="og:image" content="https://basicdata.net/logo-512.png">
+<meta name="twitter:card" content="summary">
+<script>try{var t=localStorage.getItem('bd-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/site.js" defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://basicdata.net/#org", "name": "BasicData", "url": "https://basicdata.net/", "logo": "https://basicdata.net/logo-512.png", "email": "hello@basicdata.net", "address": {"@type": "PostalAddress", "addressLocality": "Berlin", "addressCountry": "DE"}, "sameAs": ["https://marketplace.atlassian.com/apps/3678048516", "https://www.youtube.com/@basicdatanet"]}, {"@type": "WebSite", "@id": "https://basicdata.net/#website", "url": "https://basicdata.net/", "name": "BasicData", "publisher": {"@id": "https://basicdata.net/#org"}}]}</script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
-  <div class="wrap nav">
-    <div class="logo"><a href="index.html"><img src="logo-512.png" alt="BasicData logo"><span>Basic<b>Data</b></span></a></div>
-    <nav aria-label="Main"><a href="docs.html">Docs</a><a href="usecases.html">Use cases</a><a href="security.html">Security</a><a href="privacy.html">Privacy</a><a href="impressum.html">Impressum</a><a href="contact.html">Contact</a></nav>
+  <div class="wrap header-inner">
+    <a class="brand" href="/" aria-label="BasicData home"><img src="/logo-512.png" alt="" width="28" height="28"><span>BasicData</span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <div class="site-nav" id="site-nav">
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          <li class="has-dd">
+            <button class="dd-toggle" type="button" aria-expanded="false" aria-controls="dd-products">Products <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button>
+            <div class="dd-panel" id="dd-products" hidden>
+              <div class="dd-label">Apps for Jira Service Management</div>
+              <a class="dd-item" href="/customer-assets/"><img src="/app-icon-512.png" alt="" width="40" height="40"><span><strong>Customer Assets for the JSM Portal</strong><span>Customers see, update and report their own assets in the Jira Service Management portal.</span></span></a>
+              <div class="dd-foot">More apps are in the works.</div>
+            </div>
+          </li>
+          <li><a href="/customer-assets/docs/">Docs</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/customer-assets/whats-new/">What&rsquo;s new</a></li>
+          <li><a href="/security.html">Security</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-tools">
+        <div class="theme-switch" role="group" aria-label="Color theme">
+          <button type="button" data-theme-set="system" aria-pressed="true" title="System theme"><span class="visually-hidden">System</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="4.5" width="17" height="12" rx="2"/><path d="M9 20h6M12 16.5V20"/></svg></button>
+          <button type="button" data-theme-set="light" aria-pressed="false" title="Light theme"><span class="visually-hidden">Light</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg></button>
+          <button type="button" data-theme-set="dark" aria-pressed="false" title="Dark theme"><span class="visually-hidden">Dark</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19.5 14.5A7.5 7.5 0 0 1 9.5 4.5a7.5 7.5 0 1 0 10 10z"/></svg></button>
+        </div>
+        <a class="btn btn-sm" href="https://marketplace.atlassian.com/apps/3678048516">Start free</a>
+      </div>
+    </div>
   </div>
 </header>
+<main id="main" tabindex="-1">
+<section class="hero hero-home" aria-labelledby="home-h">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot" aria-hidden="true"></span>Atlassian Forge apps from Berlin</span>
+    <h1 id="home-h">Practical apps for Jira Service Management.</h1>
+    <p class="lead">BasicData builds Atlassian Forge apps that close the gaps in Jira Service Management. Each app runs on Atlassian and keeps your data on your site.</p>
+    <div class="btn-row">
+      <a class="btn" href="#products">Explore products</a>
+      <a class="btn btn-secondary" href="/customer-assets/docs/">Read the docs</a>
+    </div>
+  </div>
+</section>
 
-<main id="main">
-<div class="hero-dark">
-  <div class="wrap" style="padding-top:72px;padding-bottom:84px">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(440px,100%),1fr));gap:48px;align-items:center">
+<section class="section" id="products" aria-labelledby="products-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Products</span>
+      <h2 id="products-h">Our apps</h2>
+    </div>
+    <article class="product-card p-ca" aria-labelledby="ca-h">
       <div>
-        <span class="kicker">Runs on Atlassian · No data egress</span>
-        <h1>Your customers' assets, finally in the portal.</h1>
-        <p class="lead">Customer Assets for the JSM Portal gives every customer a secure "My Assets" view in the Jira Service Management help center. They see exactly what is theirs, and every request they raise arrives with the right asset attached.</p>
-        <div class="btn-row">
-          <a class="btn light" href="https://marketplace.atlassian.com/apps/3678048516">Start your 30-day free trial</a>
-          <a class="btn ghost" href="docs.html">View documentation</a>
+        <img class="app-icon" src="/app-icon-512.png" alt="Customer Assets app icon" width="56" height="56">
+        <p class="audience">For service teams using Assets in Jira Service Management</p>
+        <h3 id="ca-h">Customer Assets for the JSM Portal</h3>
+        <p>A secure &ldquo;My Assets&rdquo; view in the customer portal. Customers see the devices and licenses assigned to them. Every request they raise arrives with the right asset attached.</p>
+        <ul class="chips" aria-label="Highlights">
+          <li>Runs on Atlassian</li>
+          <li>English and German</li>
+          <li>30-day free trial</li>
+        </ul>
+        <div class="product-actions">
+          <a class="btn" href="/customer-assets/">View product</a>
+          <a class="btn btn-secondary" href="https://marketplace.atlassian.com/apps/3678048516">Start free trial</a>
         </div>
-        <p style="margin-top:22px;font-size:13.5px;color:#9fc1f7">Built on Forge in Berlin, Germany — your asset data never leaves your site.</p>
       </div>
-      <div>
-        <img src="shot-portal.png" alt="Customers see exactly their own assets in the JSM portal" style="width:100%;border-radius:16px;box-shadow:0 30px 70px rgba(2,12,36,.55);border:1px solid rgba(255,255,255,.18);display:block" fetchpriority="high">
-      </div>
-    </div>
-  </div>
-</div>
-
-<section id="app" aria-labelledby="app-h">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="pill">Our app</span>
-      <h2 id="app-h">Customer Assets for the JSM Portal</h2>
-      <p>Jira Service Management has a powerful asset database, but your customers can't see it. Customer Assets for the JSM Portal adds a secure self-service view to the customer portal. Customers see, update and report exactly the devices and licenses assigned to them.</p>
-      <p style="margin-top:10px"><a href="docs.html">Setup guide &amp; documentation →</a> &nbsp;·&nbsp; <a href="usecases.html">Use cases: licenses, fleet, MSP &amp; more →</a></p>
-    </div>
-    <div class="cards">
-      <div class="card reveal"><span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 2.8v5.4c0 4.3-2.9 7.6-7 9-4.1-1.4-7-4.7-7-9V5.8L12 3z"/><path d="M9.2 12l2 2 3.6-3.8"/></svg></span><h3>See exactly what's yours</h3><p>Every customer gets a "My Assets" view showing only the objects assigned to them. Every query is scoped server-side to the signed-in account: default-deny, even against a manipulated frontend.</p></div>
-      <div class="card reveal"><span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8.5A1.5 1.5 0 0 1 5.5 7h13A1.5 1.5 0 0 1 20 8.5v2a2 2 0 0 0 0 3v2a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 15.5v-2a2 2 0 0 0 0-3v-2z"/><path d="M14.5 7v1.6M14.5 11.2v1.6M14.5 15.4V17"/></svg></span><h3>From asset to ticket in one click</h3><p>Report a problem, ask a question, request a change or register a new asset. Each ticket is created through your JSM request types with the affected asset linked automatically, so agents never have to ask which device.</p></div>
-      <div class="card reveal"><span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6h14M5 12h14M5 18h14"/><circle cx="9" cy="6" r="2.1" fill="var(--accent)"/><circle cx="15" cy="12" r="2.1" fill="var(--accent)"/><circle cx="7.5" cy="18" r="2.1" fill="var(--accent)"/></svg></span><h3>Edits you control</h3><p>Per object type, choose read-only, direct edit, or reviewed change requests. Low-risk fields update instantly; sensitive ones go through a ticket your team approves.</p></div>
-      <div class="card reveal"><span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6.5" cy="6.5" r="3"/><circle cx="17.5" cy="17.5" r="3"/><path d="M8.8 8.8l6.4 6.4"/><path d="M17.5 4v2.5M16.2 5.2h2.6M6.5 17v2.6M5.2 18.3h2.6" stroke-width="1.5"/></svg></span><h3>Ownership that fits your schema</h3><p>Owner on the asset itself or on a linked record such as <code style="background:var(--soft);border:1px solid var(--line);border-radius:6px;padding:1px 5px;font-size:13px">Employee -&gt; User</code> — both work, and the app suggests the right path. No restructuring of your CMDB required.</p></div>
-      <div class="card reveal"><span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.4 2.3 3.6 5.2 3.6 8.5s-1.2 6.2-3.6 8.5c-2.4-2.3-3.6-5.2-3.6-8.5s1.2-6.2 3.6-8.5z"/></svg></span><h3>Looks right in every language</h3><p>English and German UI, following each user's Atlassian profile language. Translate object-type and attribute names so "NB-HW-Pool" shows up as "Laptop".</p></div>
-      <div class="card reveal"><span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="4.5" width="13" height="16" rx="2"/><path d="M9 4.5A1.8 1.8 0 0 1 10.8 3h2.4A1.8 1.8 0 0 1 15 4.5"/><path d="M8.8 11h3M8.8 15h3"/><path d="M14.2 14.4l1.3 1.3 2.3-2.5" stroke-width="1.6"/></svg></span><h3>Setup that explains itself</h3><p>A 4-step wizard with health checks, a one-click proposal that scans your site and fills in the configuration, and a live preview of your own portal while you map owners.</p></div>
+      <div><div class="shot"><img src="/shot-portal.png" alt="Customers see their own assets in the Jira Service Management portal" width="1280" height="800" loading="lazy"></div></div>
+    </article>
+    <div class="coming-card">
+      <strong>More apps coming</strong>
+      <p>We are working on the next app for Jira Service Management. New apps will appear here and on the Atlassian Marketplace.</p>
     </div>
   </div>
 </section>
 
-<section class="section-soft" id="tour" aria-labelledby="tour-h">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="pill">Product tour</span>
-      <h2 id="tour-h">See it in action</h2>
-      <p>From the customer's "My Assets" view to the asset-linked ticket in Jira — every step scoped to the signed-in user, server-side.</p>
-    </div>
+<section class="section section-soft" id="about" aria-labelledby="about-h">
+  <div class="wrap"><div class="statement">
+    <span class="eyebrow">What we do</span>
+    <h2 id="about-h" class="visually-hidden">About BasicData</h2>
+    <p class="big" style="margin-top:14px">We think admin tools should explain themselves. <span>Our apps ship with guided setup, built-in checks and honest documentation.</span></p>
+    <p class="muted">BasicData is an independent software business based in Berlin, Germany. Your data stays on your site, by design.</p>
+  </div></div>
+</section>
 
-    <div class="feature reveal">
-      <div>
-        <span class="pill">Self-service portal</span>
-        <h3>Every customer sees exactly their own assets</h3>
-        <p>A secure "My Assets" view right inside the JSM customer portal, with search, filters and type tabs. The result set is scoped server-side — default-deny.</p>
-        <ul>
-          <li>Default-deny security model</li>
-          <li>Search, filters &amp; type tabs</li>
-          <li>Optional dashboard start view</li>
-        </ul>
-      </div>
-      <div class="media"><a href="shot-list.png"><img src="shot-list.png" alt="The My Assets list in the JSM customer portal with search, filters and type tabs" loading="lazy"></a></div>
+<section class="section" id="security" aria-labelledby="sec-h">
+  <div class="wrap trust">
+    <div class="sec-head" style="margin-bottom:0">
+      <span class="eyebrow">Security</span>
+      <h2 id="sec-h">Built on Atlassian Forge</h2>
+      <p>Our apps run on Atlassian-managed infrastructure. BasicData operates no servers of its own and holds no credentials or API keys.</p>
+      <p style="margin-top:18px"><a class="link-arrow" href="/security.html">Read the security policy</a></p>
     </div>
-
-    <div class="feature flip reveal">
-      <div>
-        <span class="pill">Asset-linked requests</span>
-        <h3>From asset to ticket in one click</h3>
-        <p>Customers report a problem, request a change or ask a question straight from the asset. The affected asset is linked automatically, and agents see the reporter's assets in the issue view.</p>
-        <ul>
-          <li>Four processes: report, register, change, question</li>
-          <li>Direct edits or reviewed change requests — your choice per type</li>
-          <li>"Reporter Assets" glance for agents</li>
-        </ul>
-      </div>
-      <div class="media"><a href="shot-ticket.png"><img src="shot-ticket.png" alt="Asset-linked requests: from asset detail to ticket" loading="lazy"></a></div>
-    </div>
-
-    <div class="feature reveal">
-      <div>
-        <span class="pill">Guided setup</span>
-        <h3>A status panel and a one-click proposal guide the setup</h3>
-        <p>Four plain-language checks with fix buttons, an automatic suggestion that scans your site and fills in the whole configuration, and a verify button that tests your Jira asset field end to end.</p>
-        <ul>
-          <li>Setup wizard with contextual help</li>
-          <li>One-click configuration proposal</li>
-          <li>Live preview while you map owners</li>
-        </ul>
-      </div>
-      <div class="media"><a href="shot-setup.png"><img src="shot-setup.png" alt="Setup status panel and one-click configuration proposal" loading="lazy"></a></div>
-    </div>
-
-    <div class="feature flip reveal">
-      <div>
-        <span class="pill">Flexible ownership</span>
-        <h3>Ownership on the asset — or on a linked object</h3>
-        <p>Map owners through a user attribute on the asset itself, or through a linked object such as an employee record (<code style="background:#fff;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:14px">Employee → User</code>). Both resolve server-side with the same default-deny scoping.</p>
-        <ul>
-          <li>User attribute or reference path</li>
-          <li>Auto-suggested candidates, including linked-object paths</li>
-          <li>Organization-wide ownership on the roadmap</li>
-        </ul>
-      </div>
-      <div class="media"><a href="shot-ownership.png"><img src="shot-ownership.png" alt="Ownership via user attribute or linked object" loading="lazy"></a></div>
-    </div>
-
-    <div class="shots" style="margin-top:28px">
-      <figure class="reveal"><a href="shot-dashboard.png"><img src="shot-dashboard.png" alt="Optional dashboard start view with counters, status distribution and quick actions" loading="lazy"></a><figcaption>Optional dashboard start view: counters, status distribution, quick actions.</figcaption></figure>
-      <figure class="reveal"><a href="shot-detail.png"><img src="shot-detail.png" alt="Asset detail view with configurable attributes and actions" loading="lazy"></a><figcaption>Asset detail with configurable attributes and actions.</figcaption></figure>
-      <figure class="reveal"><a href="shot-report.png"><img src="shot-report.png" alt="Report a problem form with the asset linked automatically" loading="lazy"></a><figcaption>Report a problem — the asset is linked automatically.</figcaption></figure>
+    <div class="grid grid-4" style="gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr))">
+      <div class="card"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 18h10a4 4 0 0 0 .6-7.96A6 6 0 0 0 6.1 9.6 4.2 4.2 0 0 0 7 18z"/></svg></span><h3>Runs on Atlassian</h3><p>The app is eligible for Atlassian&rsquo;s &ldquo;Runs on Atlassian&rdquo; program. All storage uses Forge hosted storage inside your site&rsquo;s data residency boundary.</p></div>
+      <div class="card"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.5l7 3v5.2c0 4.3-3 7.6-7 8.8-4-1.2-7-4.5-7-8.8V6.5z"/><path d="M9.2 9.2l5.6 5.6M14.8 9.2l-5.6 5.6"/></svg></span><h3>No data egress</h3><p>The manifest declares no external endpoints. No data can leave your Atlassian site through the app.</p></div>
+      <div class="card"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.5l7 3v5.2c0 4.3-3 7.6-7 8.8-4-1.2-7-4.5-7-8.8V6.5z"/><path d="M9 12l2 2 4-4.3"/></svg></span><h3>Default-deny access</h3><p>Every customer query is scoped server-side to the signed-in user. Without a verified account ID the result set is empty.</p></div>
+      <div class="card"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg></span><h3>Built in Berlin</h3><p>Developed and supported by BasicData in Berlin, Germany. Support tickets get an answer within one business day.</p></div>
     </div>
   </div>
 </section>
 
-<section id="how-it-works" aria-labelledby="how-h">
+<section class="section section-soft" aria-labelledby="res-h">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="pill">How it works</span>
-      <h2 id="how-h">Live in three steps</h2>
+    <div class="sec-head">
+      <span class="eyebrow">Resources</span>
+      <h2 id="res-h">Learn how it works</h2>
     </div>
-    <div class="cards">
-      <div class="card reveal"><span class="ico num" aria-hidden="true">1</span><h3>Connect your project and asset field</h3><p>Pick your service desk, request types and the "Assets objects" field. A one-click check verifies the field end to end.</p></div>
-      <div class="card reveal"><span class="ico num" aria-hidden="true">2</span><h3>Map ownership</h3><p>Choose the object types customers should see and confirm the suggested owner attribute, direct or via a linked record. A live preview shows real results as you go.</p></div>
-      <div class="card reveal"><span class="ico num" aria-hidden="true">3</span><h3>Shape the portal</h3><p>Set card attributes, status colors, detail views, editability and translations per type. Optionally turn on the dashboard start view. Done — customers see "My Assets" in the help center.</p></div>
+    <div class="grid grid-3">
+      <a class="card card-link" href="/customer-assets/docs/"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4.5h9.5A2.5 2.5 0 0 1 17 7v12.5H7.5A2.5 2.5 0 0 1 5 17z"/><path d="M5 17a2.5 2.5 0 0 1 2.5-2.5H17"/><path d="M19 7v13"/></svg></span><h3>Documentation</h3><p>Setup guide, security model, troubleshooting and FAQ for Customer Assets.</p><p style="margin-top:14px"><span class="link-arrow">Open docs</span></p></a>
+      <a class="card card-link" href="/customer-assets/use-cases/"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="4" width="7" height="7" rx="1.6"/><rect x="13" y="4" width="7" height="7" rx="1.6"/><rect x="4" y="13" width="7" height="7" rx="1.6"/><rect x="13" y="13" width="7" height="7" rx="1.6"/></svg></span><h3>Use cases</h3><p>How teams use asset self-service for IT equipment, licenses, fleet, facilities and MSP portals.</p><p style="margin-top:14px"><span class="link-arrow">See use cases</span></p></a>
+      <a class="card card-link" href="/customer-assets/whats-new/"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.5v4M12 16.5v4M3.5 12h4M16.5 12h4M6 6l2.6 2.6M15.4 15.4L18 18M18 6l-2.6 2.6M8.6 15.4L6 18"/></svg></span><h3>What&rsquo;s new</h3><p>Release notes for each version of Customer Assets.</p><p style="margin-top:14px"><span class="link-arrow">View updates</span></p></a>
     </div>
   </div>
 </section>
 
-<section class="section-soft" id="pricing" aria-labelledby="pricing-h">
+<section class="section" aria-labelledby="cta-h">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="pill">Pricing</span>
-      <h2 id="pricing-h">Simple pricing, billed by Atlassian</h2>
-    </div>
-    <div class="cards">
-      <div class="card reveal"><span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="13" rx="2"/><path d="M3.5 9.5h17"/><path d="M7 14.8h4"/></svg></span><h3>Paid via Atlassian</h3><p>Flat USD 5/month for sites with up to 10 users, then USD 0.50 per user per month. Billing runs through your existing Atlassian subscription; annual billing gets two months free.</p></div>
-      <div class="card reveal"><span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5.5" width="16" height="14.5" rx="2"/><path d="M4 10h16M8.5 3.5v3.5M15.5 3.5v3.5"/><path d="M9.5 15l1.8 1.8 3.4-3.6"/></svg></span><h3>30-day free trial</h3><p>Every new subscription starts with a <strong>30-day free trial</strong> — all features, no card, no separate account.</p></div>
-      <div class="card reveal"><span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 13v-1.5a7.5 7.5 0 0 1 15 0V13"/><rect x="3.5" y="12.5" width="4" height="6" rx="1.6"/><rect x="16.5" y="12.5" width="4" height="6" rx="1.6"/><path d="M19.5 18.5v.8a2.7 2.7 0 0 1-2.7 2.7H13.5"/></svg></span><h3>Support included</h3><p>Support is included: we answer tickets in our <a href="https://basicdata.atlassian.net/servicedesk/customer/portal/3">support portal</a> within one business day.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="about" aria-labelledby="about-h" style="padding-bottom:72px">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="pill">About</span>
-      <h2 id="about-h">About BasicData</h2>
-      <p>BasicData is an independent software business based in Berlin, Germany. We think admin tools should explain themselves. Our apps ship with guided setup, built-in checks and honest documentation. Your data stays on your site, by design.</p>
-    </div>
-    <div class="cta-band reveal">
-      <div><h2>Your schema, their portal.</h2><p>Install from the Atlassian Marketplace, run the 4-step wizard, and your customers see their assets today. 30 days free, cancel anytime through Atlassian.</p></div>
-      <a class="btn light" href="https://marketplace.atlassian.com/apps/3678048516">Get it on the Atlassian Marketplace</a>
+    <div class="cta">
+      <div><h2 id="cta-h">Try Customer Assets free for 30 days</h2><p>Install it from the Atlassian Marketplace and run the 4-step setup wizard. Billing runs through Atlassian, and you can cancel anytime.</p></div>
+      <div class="btn-row"><a class="btn" href="https://marketplace.atlassian.com/apps/3678048516">Start free trial</a><a class="btn btn-secondary" href="/contact.html">Contact us</a></div>
     </div>
   </div>
 </section>
 </main>
-
 <footer class="site-footer">
   <div class="wrap">
-    <span>© 2026 BasicData, Berlin</span>
-    <span><a href="docs.html">Docs</a> · <a href="https://basicdata.atlassian.net/servicedesk/customer/portal/3">Support</a> · <a href="security.html">Security</a> · <a href="privacy.html">Privacy</a> · <a href="impressum.html">Impressum</a> · <a href="contact.html">Contact</a></span>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/"><img src="/logo-512.png" alt="" width="28" height="28"><span>BasicData</span></a>
+        <p>Practical Forge apps that close the gaps in Jira Service Management.</p>
+      </div>
+      <div class="footer-col"><h2>Products</h2><ul>
+        <li><a href="/customer-assets/">Customer Assets</a></li>
+        <li><a href="https://marketplace.atlassian.com/apps/3678048516">Atlassian Marketplace</a></li>
+      </ul></div>
+      <div class="footer-col"><h2>Resources</h2><ul>
+        <li><a href="/customer-assets/docs/">Docs</a></li>
+        <li><a href="/customer-assets/use-cases/">Use cases</a></li>
+        <li><a href="/customer-assets/whats-new/">What&rsquo;s new</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="https://basicdata.atlassian.net/servicedesk/customer/portal/3">Support portal</a></li>
+      </ul></div>
+      <div class="footer-col"><h2>Company</h2><ul>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="/security.html">Security</a></li>
+      </ul></div>
+      <div class="footer-col"><h2>Legal</h2><ul>
+        <li><a href="/privacy.html">Privacy</a></li>
+        <li><a href="/impressum.html">Impressum</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 BasicData, Berlin</span>
+      <span>Built for Jira, on Atlassian Forge.</span>
+    </div>
   </div>
 </footer>
-<script>
-(function(){
-  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  if(!('IntersectionObserver' in window))return;
-  var els=document.querySelectorAll('.reveal');
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -5% 0px'});
-  els.forEach(function(el){el.classList.add('pre');io.observe(el)});
-})();
-</script>
 </body>
 </html>
